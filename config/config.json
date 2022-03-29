@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "advisor-dashboard-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/advisorDashboard/AdvisorDashboardWebPart.js",
+          "manifest": "./src/webparts/advisorDashboard/AdvisorDashboardWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "AdvisorDashboardWebPartStrings": "lib/webparts/advisorDashboard/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}

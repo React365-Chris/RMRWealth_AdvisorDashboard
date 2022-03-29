@@ -1,0 +1,1640 @@
+[
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "57bf02c3-b812-46bb-84a1-165834dd65db",
+      "Id": "0013k00002riXHEAA2",
+      "Name": "Addison, James Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "cd826d21-695c-4b02-a4e3-f0c889f25354",
+      "Id": "0013k00002riXHCAA2",
+      "Name": "Alcantara, Robert Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "940b32b1-1511-4524-b9ad-1bb989097847",
+      "Id": "0013k00002riXH7AAM",
+      "Name": "Alston, Donicia Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "126b2197-12de-42e5-869f-19ec84187986",
+      "Id": "0013k00002fMPP3AAO",
+      "Name": "Alsup, Ethel Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "c0add358-9dc5-42e0-be67-b674eaf96e99",
+      "Id": "0013k000039pnIrAAI",
+      "Name": "Armstrong, David Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "DeGrau, Ryan - 204RDE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "e544630e-ce9d-44ef-82d8-6aeadd12b77a",
+      "Id": "0013k00002riXHAAA2",
+      "Name": "Bailey, Stephen Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "98d080ec-2bc5-4b78-b899-23dad7200bbe",
+      "Id": "0013k00002cEF7KAAW",
+      "Name": "Balanda, Shelley Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "f10f42f0-1469-495e-9443-577944744ba6",
+      "Id": "0013k00003H1uxeAAB",
+      "Name": "Bartos, Bob Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "1848c463-e98e-4c43-a356-9e438e422aad",
+      "Id": "0013k00003ISYitAAH",
+      "Name": "Bates, Joseph Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "2a3cb2e9-d3e5-4a0a-a0de-0f4abeeba853",
+      "Id": "0013k00003ITFZDAA5",
+      "Name": "Bedi, Ritik Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "9de8ab17-2f43-490d-ad00-33c3c752d8b2",
+      "Id": "0013k00003ITFTvAAP",
+      "Name": "Bell, Robert Jr. Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "f0217be5-7621-442b-9492-062b423179ea",
+      "Id": "0013k00003ITIeUAAX",
+      "Name": "Bennett, Robert Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "dfcc843e-8c76-46e6-9557-a54db7710b9d",
+      "Id": "0013k00002cEF8BAAW",
+      "Name": "Bergeron, Diana Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "719b245d-fc10-4512-aaa1-447727fc6500",
+      "Id": "0013k00002cEF8KAAW",
+      "Name": "Bigert, Frank Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Simchowitz, Stuart - 190SSI"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "7e392d03-7aff-4bae-b2ed-eb80040fc53c",
+      "Id": "0013k00002cEF8SAAW",
+      "Name": "Blessing, Sara Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "3cacf7ad-c550-4e2b-b778-c76db83f37d7",
+      "Id": "0013k00002cEF8gAAG",
+      "Name": "Bouchard, Paul Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "ca9d6f3d-a21a-477a-95bf-914df8a1b010",
+      "Id": "0013k00002riXH0AAM",
+      "Name": "Bowe, Michael Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "82a5838d-a669-4b59-bd51-4910dfb0aa3f",
+      "Id": "0013k00003ITIXVAA5",
+      "Name": "Brandt, Anthony Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "cb02d145-712e-4334-a6b4-c543a4d0f13f",
+      "Id": "0013k00002kG7drAAC",
+      "Name": "Brosnan, Alex Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "7e660532-f32b-4510-abfe-b3c59f4b733b",
+      "Id": "0013k00003FNSTVAA5",
+      "Name": "Brunas, Brian Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "70582c05-f061-4483-9c00-e16d2a3148ce",
+      "Id": "0013k00002cEF91AAG",
+      "Name": "Buchan, Peter Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "a1652fff-d1b0-46e1-a344-3a97748aaf5a",
+      "Id": "0013k00002cEF95AAG",
+      "Name": "Bulla, Diane Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "77478c11-cafe-40d3-b113-7d93f7f0e770",
+      "Id": "0013k00003H1v8kAAB",
+      "Name": "Byrnes, Robert Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "a85e357b-7897-4351-b202-ff18ca65b2ad",
+      "Id": "0013k00003C3gQIAAZ",
+      "Name": "Camacho, Ramon Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "4c3c7130-155e-40a8-83a9-d2bf93f878e2",
+      "Id": "0013k00002hPo5KAAS",
+      "Name": "Casper, John Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "c31aaeac-1907-481b-a100-35f783c07774",
+      "Id": "0013k00003ISYkuAAH",
+      "Name": "Catania, Ronald Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "e2bdcd36-90ba-4e86-aac0-6de86de64134",
+      "Id": "0013k00002cEF9xAAG",
+      "Name": "Clark, Sheila Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "85ed6010-6517-47a3-830b-5796b0a4d352",
+      "Id": "0013k00002cEF9yAAG",
+      "Name": "Clarke, Maria Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "d1e229ba-e00a-4b95-aa17-644864a3223f",
+      "Id": "0013k00002cEFA7AAO",
+      "Name": "Coniglio, Lisa Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "5495b7d1-2c0c-4376-b855-0c127416a5ca",
+      "Id": "0013k00003C3gS5AAJ",
+      "Name": "Correia, Dawn Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "407635b8-809c-41cd-ad57-938c18c7e21e",
+      "Id": "0013k00002cEFAMAA4",
+      "Name": "Cowan, Nancy Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "95a0b4e6-8a7c-4b7b-bfe3-cf79731a61a3",
+      "Id": "0013k00003H1v59AAB",
+      "Name": "Dannenfelsen, Shaun Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "d2cac350-def9-47a8-b7b3-3be93ea681a4",
+      "Id": "0013k00002cEFAjAAO",
+      "Name": "Davidson, Kenneth Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, D./Majtenyi, E./Russo, J. - 264RMR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "067543da-3016-4c80-b436-17c7e81d3294",
+      "Id": "0013k00003ITFZEAA5",
+      "Name": "Degraw, Dale Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "5738fc7c-e3f5-4423-8df7-b5ba1f346ed7",
+      "Id": "0013k00002cEFBIAA4",
+      "Name": "Dion, Dean Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "31462504-cd9a-4f3c-9cd3-949ee443e449",
+      "Id": "0013k00002cEFBMAA4",
+      "Name": "Doatch, Margaret Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "b74908c6-8840-4b27-aa60-0ab623d4e3f3",
+      "Id": "0013k00002h2Nv7AAE",
+      "Name": "Dorsey, Danielle Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "040f5d76-ce5d-418f-840e-c1a10bf0b4d1",
+      "Id": "0013k00002cEFBWAA4",
+      "Name": "Doucette, Diane Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "ced4259e-8b2e-4cb3-b9a1-a42e21503673",
+      "Id": "0013k00002riXH4AAM",
+      "Name": "Duncan, Darren Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "6b538bb3-5fa5-4657-8e8f-02af6f0bf3ac",
+      "Id": "0013k00003ITGHUAA5",
+      "Name": "Dzema, Steve Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "a8708819-b897-46de-95c3-df409806fba7",
+      "Id": "0013k00002cEFBlAAO",
+      "Name": "Eckelson, George Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "1aa4d6bb-8791-46a4-8777-3269bdf36365",
+      "Id": "0013k00002lBTKjAAO",
+      "Name": "Edwards, Brittany Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "1bb11d7a-7ecc-4e44-91b0-c5cbc5d54803",
+      "Id": "0013k00002cEFBrAAO",
+      "Name": "Eisenberg, Jennifer Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, M./Russo, R. - 2CLMGR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "543e222d-5819-4eab-b47c-2ba8cd3178c8",
+      "Id": "0013k00002cEFBsAAO",
+      "Name": "Eisenberg, Kenneth Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, M./Russo, R. - 2CLMGR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "b2394a56-421c-4409-a143-0d9c2aae5af3",
+      "Id": "0013k00002riXHDAA2",
+      "Name": "El-Amin, Mahasin Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "eeda84fe-dcba-4ab7-9f2a-6550386399f7",
+      "Id": "0013k00002cEFBvAAO",
+      "Name": "Emerson, Darrell Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "9ca9fd80-b89d-4b24-aaec-fba4165e5fda",
+      "Id": "0013k00002cEFC0AAO",
+      "Name": "Ermilio, Robert Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "b44501e9-4381-4a9f-bf9a-f40138ace3cd",
+      "Id": "0013k00003H1v7SAAR",
+      "Name": "Everett, Kirk Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "393a4dab-b159-40c5-b2c5-6b63dc7b4912",
+      "Id": "0013k00002cEFCJAA4",
+      "Name": "Faro, William Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "63c130a4-e12e-42ef-9605-3ed946d450f3",
+      "Id": "0013k00003ISYh2AAH",
+      "Name": "Fierro, John Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "8a806501-bd6c-45b8-9b8d-a56923ad2733",
+      "Id": "0013k00003C3gQcAAJ",
+      "Name": "Finkelstein, Keith Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "7327b0f3-7071-4b6c-99b8-fe12ab136b17",
+      "Id": "0013k00002cEFCuAAO",
+      "Name": "Forker, Blanche Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "54955785-512b-4640-8c10-a473efb3c019",
+      "Id": "0013k00003ISYiuAAH",
+      "Name": "Frasier, Patrick Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "e71a4af2-7df0-41aa-a54d-e1db077970e6",
+      "Id": "0013k00002nAJv4AAG",
+      "Name": "Frees, James Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "3c89001b-2283-454d-b559-2e3302065019",
+      "Id": "0013k00002jED3PAAW",
+      "Name": "Friedman, Steven Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "fb7f33f0-6c43-4916-a9eb-dc6e3db47c37",
+      "Id": "0013k00002w36b6AAA",
+      "Name": "Fuentes, Isabel Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "ed4678b2-fa58-434f-9fc1-d03d761ed720",
+      "Id": "0013k00002nAmbGAAS",
+      "Name": "Gabriel, Tokz Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "6f10b1ae-cd25-4604-ac22-ca3475208fc4",
+      "Id": "0013k00002cEFDKAA4",
+      "Name": "Gaccione, Steven Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "2eb5cb67-4d17-43fd-8095-b563f52f03f2",
+      "Id": "0013k00003Ae7l4AAB",
+      "Name": "Gavan, Gregory Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "01f4168b-abde-4d7f-9780-a03a30a8fe5d",
+      "Id": "0013k00002cEFDjAAO",
+      "Name": "Ginesi, Judy Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Whitehouse, T./Getahun, A. - 269TWG"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "8d19c95b-c37c-4cd4-a514-6aa5fe137ad1",
+      "Id": "0013k00002riXH2AAM",
+      "Name": "Gonzalez, Carlos Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "a83953e5-c232-4a32-ad5c-e42501a0016f",
+      "Id": "0013k00002cEFE2AAO",
+      "Name": "Goodrich, Margaret Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "f0bef7ca-b170-4ac3-b6c8-d96c42d4d8f7",
+      "Id": "0013k00002riXH3AAM",
+      "Name": "Graham, Rashawn Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "4a2bec75-8095-4b8c-af84-501353cde619",
+      "Id": "0013k00002riXH8AAM",
+      "Name": "Grant, Candace Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "7c8dd5fe-e1bb-4ff4-a2c8-0237f1dc39ca",
+      "Id": "0013k00003ISYldAAH",
+      "Name": "Green, Kevin Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "ddc9ed91-d70b-4fd0-8646-d0d4d17c3994",
+      "Id": "0013k000039pX4iAAE",
+      "Name": "Greenberg, Seth Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Simchowitz, Stuart - 190SSI"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "9b589087-b5ca-4726-a21e-571111f2711c",
+      "Id": "0013k00003H1v5YAAR",
+      "Name": "Griffin, Grady Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "283fb6e0-cc39-4199-8306-a91e5a8d4cce",
+      "Id": "0013k00002cEFERAA4",
+      "Name": "Griggs, Faizah Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "38fbd3da-e719-4cfc-bc8d-4b8f30a288e4",
+      "Id": "0013k00002pQNX3AAO",
+      "Name": "Guido, Marc Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "4686e91f-a6b9-45c0-a85b-0925f3ceffc3",
+      "Id": "0013k00002cEFEhAAO",
+      "Name": "Gutterman, Emily Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "a6140508-30c5-4775-8ae6-01c72b9595e0",
+      "Id": "0013k00003Af5JeAAJ",
+      "Name": "Hamill, Kennerth Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PPE & FDNY) - 274MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "74f489f3-c822-4132-a64d-1cde89e55ad9",
+      "Id": "0013k00002cEFEwAAO",
+      "Name": "Hamilton, Bethany Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "bc4f01e5-be76-4165-b646-cc60bc49ed2a",
+      "Id": "0013k00002cEFEyAAO",
+      "Name": "Hamilton, Janet Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Simchowitz, Stuart - 190SSI"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "7b998da0-9ab5-40eb-8d45-e020eef38fa9",
+      "Id": "0013k00002cEFF5AAO",
+      "Name": "Hanlon, George Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "e5f440a8-7eaa-4fbd-a4af-5ec50ac916aa",
+      "Id": "0013k00003FNSTWAA5",
+      "Name": "Harchetts, Andrew Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "17b96971-f76f-4578-b838-5439e67fa07d",
+      "Id": "0013k00002riXH5AAM",
+      "Name": "Harrison, Mylis Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "4bef83ee-057a-4876-875f-2952d8bd3e43",
+      "Id": "0013k00002qgWmAAAU",
+      "Name": "Hsin Chwen Li, Michael Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Whitehouse, T./DeGrau, R. - 2AHTWD"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "497ca590-17a9-43ef-bd36-e986c6df881c",
+      "Id": "0013k00002cEFFwAAO",
+      "Name": "Hwang, Sookie Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, M./Russo, R. - 2CLMGR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "21ddaae1-0202-4030-bf7c-716d22aacaa8",
+      "Id": "0013k00002cEFG0AAO",
+      "Name": "Iacovelli, Michaelina Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "8d2df1cf-9814-4059-8239-07956f5831b8",
+      "Id": "0013k00003FNSQqAAP",
+      "Name": "Iannarone, Tyler Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "c390e3c6-fc36-4445-990f-fc3b28635a8a",
+      "Id": "0013k000039oe41AAA",
+      "Name": "Isenburg, Susan Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "DeGrau, R./Whitehouse, T./Russo, R. - 2AMDWR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "5c18c7fb-7a26-4ce0-a4b9-668172ea1f6d",
+      "Id": "0013k00003Af57bAAB",
+      "Name": "Istvandisch, Kevin Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "4cb706ac-cce1-48be-937d-624c12ba0190",
+      "Id": "0013k00002fO19cAAC",
+      "Name": "Jenkinson, Elizabeth Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "7dabf379-9eaa-4d6b-b16c-8bbf09d8a09a",
+      "Id": "0013k00002cEFGQAA4",
+      "Name": "Jensen, Sandra Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "b9bee89f-1ae7-4661-b4ba-1040605f0fe4",
+      "Id": "0013k00002kGF2pAAG",
+      "Name": "John, Sally Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "9f058ebd-9278-44d0-8b0b-c5e975cb8e4a",
+      "Id": "0013k00002riXH1AAM",
+      "Name": "Johnson, Chanel Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "b3d56846-6e60-4c61-b838-2984e3449eaf",
+      "Id": "0013k00002cEFGXAA4",
+      "Name": "Jones, Charlotte Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "a96f301a-45a2-4459-b2b1-a2128c28c91c",
+      "Id": "0013k00003H1v86AAB",
+      "Name": "Jones, Tony Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "6773d5e0-54dd-4044-9e09-554aebda8e85",
+      "Id": "0013k00002cEFGiAAO",
+      "Name": "Karp, Steven Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "27eca04f-66cd-4e89-ba1a-a4d96e4c66b9",
+      "Id": "0013k00002cEFGvAAO",
+      "Name": "Kennedy, Kathleen Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "89eacf02-d47c-441b-bd9d-acc1ca37fa75",
+      "Id": "0013k00002cEFH5AAO",
+      "Name": "Kierst, Michael Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "1ca31934-1a09-41e9-9286-0e44e467fb75",
+      "Id": "0013k00002cEFH7AAO",
+      "Name": "Kim, Robert Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "94fb71c9-0c36-401a-8e7f-f50efbf999df",
+      "Id": "0013k00002cEFHFAA4",
+      "Name": "Klein, Christine Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "f8da379a-a64f-4ee0-9d0e-24ae1351fffc",
+      "Id": "0013k00002cEFHGAA4",
+      "Name": "Klein, Henry Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "8e698403-6c19-447b-8be5-33687dcb6511",
+      "Id": "0013k000033QOUMAA4",
+      "Name": "Korkes, Leann Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "8938ca3d-8093-4a29-8cb5-a017b36872dd",
+      "Id": "0013k00002cEFHSAA4",
+      "Name": "Kotzamanis, Christian Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "3d6d3555-b57f-4694-b859-808d83f8bb36",
+      "Id": "0013k00003H1v6HAAR",
+      "Name": "Kratz, Jurrian Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "7157ed36-092c-4ea2-af09-db7cd4d850b8",
+      "Id": "0013k00003FNSMsAAP",
+      "Name": "Kraus, Joseph Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "05814d5c-752d-4a24-af29-6fc07d8e0f55",
+      "Id": "0013k00002cEFHWAA4",
+      "Name": "Krenetsky, Joseph Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "818313c6-5507-4741-9570-4c80bfcee8ad",
+      "Id": "0013k00002cEFHXAA4",
+      "Name": "Kriegsman, Todd Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "e4c9e892-8fb7-4c63-a4e7-eb7beb6ff60f",
+      "Id": "0013k00002cEFHZAA4",
+      "Name": "Kuhlthau, Kearney Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "12a46064-cf3f-4491-999e-3bef1495fec1",
+      "Id": "0013k00002cEFHjAAO",
+      "Name": "Lajoie, Alan Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "265d802f-f03a-490e-a02d-4fd1f971da82",
+      "Id": "0013k00003ITIglAAH",
+      "Name": "Lang, Daniel Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "1760ffc0-f0a4-427c-9418-da8123069bf5",
+      "Id": "0013k00002riXH9AAM",
+      "Name": "Leiva, Yonny Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "bb2a83a8-cb72-4ced-99a8-888561f70c35",
+      "Id": "0013k00003C3gQZAAZ",
+      "Name": "Liebflied, John Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "09941cfd-43f9-438b-a680-cc7d56a79d58",
+      "Id": "0013k000033gj5DAAQ",
+      "Name": "Lin, Eleanor Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "DeGrau, Ryan - 204RDE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "c71cc02f-a1ea-400c-912b-3da613d51095",
+      "Id": "0013k00003Af5T1AAJ",
+      "Name": "Louhier, Nicholas Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PPE & FDNY) - 274MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "c1abd2ff-3e6d-4390-ac72-449c7cb50985",
+      "Id": "0013k00002pQR9wAAG",
+      "Name": "Lund, Thane Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "4e0e1676-7fe7-4eaa-92db-fb45546d233c",
+      "Id": "0013k00002cEFIlAAO",
+      "Name": "Lysick, Bryan Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, D./Majtenyi, E./Russo, J. - 264RMR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "253a297c-3213-4984-a645-55aad0899905",
+      "Id": "0013k00002riXHBAA2",
+      "Name": "Marroquin, A Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "f030fdc9-c546-41a0-aba0-b034983fc2f2",
+      "Id": "0013k00002lBIi2AAG",
+      "Name": "Martinez, Vanessa Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "6cc8ffcf-107a-44da-9569-99ed2f98a507",
+      "Id": "0013k00002cEFJEAA4",
+      "Name": "Mattei, Roger Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "fbe90aaa-5010-4736-b917-9e64c0654d69",
+      "Id": "0013k00002cEFJKAA4",
+      "Name": "Maynard, Monique Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "45e9d871-f902-410b-a153-07d5b35e080d",
+      "Id": "0013k00003ITIaPAAX",
+      "Name": "McClain, Heather Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "1cd9b5ec-f660-4d31-8b83-b5454e57853e",
+      "Id": "0013k00002kGAEPAA4",
+      "Name": "McCorkle, Emily Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "f8d00168-0bdd-4692-bfee-363855a34fd8",
+      "Id": "0013k00003Af5dcAAB",
+      "Name": "McGowan, Mark Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "dad053c1-a085-46d6-b2d6-9a7cf9a5e4ac",
+      "Id": "0013k00003H1v99AAB",
+      "Name": "McKeown, Ed Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "80eae4e4-acc2-45e7-a1e6-1fcc0e4be0b7",
+      "Id": "0013k00003ISYfuAAH",
+      "Name": "McLoughlin, Tim Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "da5e42b6-1fd5-4caa-9e4a-75eca4007b99",
+      "Id": "0013k00003FNSSXAA5",
+      "Name": "Meyer, Jon Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "00e22a4e-8fbb-400d-899c-ab5525b14613",
+      "Id": "0013k00002cEFTJAA4",
+      "Name": "Mezitis Hellenic Fund",
+      "Type": "Entity",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "DeGrau, R./Russo, J. - 21JRDR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "e41d205f-6f30-4d4f-bf34-735ba03b0088",
+      "Id": "0013k0000347mftAAA",
+      "Name": "Mikell, Jason Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "1bbcc9c8-62fd-46ed-8b63-92610864e503",
+      "Id": "0013k0000347mEvAAI",
+      "Name": "Mikell, Jeffrey Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "129824bb-6504-4e2c-b179-d168323f5cf9",
+      "Id": "0013k000033z7LCAAY",
+      "Name": "Mikell, Natalie Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "187cc1a0-7556-428c-9f36-a0e4e93e0950",
+      "Id": "0013k00003Af5dbAAB",
+      "Name": "Molisso, Anthony Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PPE & FDNY) - 274MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "22c635d7-2ba7-48fe-aeab-0a5bda6fd172",
+      "Id": "0013k00002cEFKJAA4",
+      "Name": "Montalbano, Stephen Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "681716e7-e93b-4126-afcd-6cf4dbdf1597",
+      "Id": "0013k00002cEFKOAA4",
+      "Name": "Moran, Florence Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, D./Majtenyi, E./Russo, J. - 264RMR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "1ffb55da-37ff-408c-848e-fb5a92596e00",
+      "Id": "0013k00003ECmy6AAD",
+      "Name": "Morielli, Anthony Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "60dd3057-fdad-4d40-aa28-8876d27a194f",
+      "Id": "0013k00003FNSPJAA5",
+      "Name": "Neary, Jack Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "daa79b35-8688-433a-a7ef-7432b6a139e7",
+      "Id": "0013k00002cEFLCAA4",
+      "Name": "Norat, Jose Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "82e3a9be-791b-48e4-93a5-a33938cb1d4f",
+      "Id": "0013k000031E3YzAAK",
+      "Name": "Panckeri, Wesley Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "83537db1-a82c-4965-8693-5cf5f7d29972",
+      "Id": "0013k00002cEFLwAAO",
+      "Name": "Perrine, Michael Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "51deddfa-4e26-486e-a45b-3654ac75b2c7",
+      "Id": "0013k00002cEFMIAA4",
+      "Name": "Pomphrey, Patricia Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, D./Majtenyi, E./Russo, J. - 264RMR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "a7562da7-decc-447e-8902-e5aaad0528f5",
+      "Id": "0013k00002xNPCBAA4",
+      "Name": "Portelli, Angela Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "f8735bd2-fe35-4ee6-ae71-49fe2c6fdc56",
+      "Id": "0013k00003FNSMrAAP",
+      "Name": "Printz, Tyler Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "7f97bc6c-8266-4599-a0bf-d3576a03f833",
+      "Id": "0013k00002cEFMSAA4",
+      "Name": "Pruzansky, Stewart Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "873974b7-0d80-496b-8be0-677a1e8fc14f",
+      "Id": "0013k00003Af5tiAAB",
+      "Name": "Quigley, Ryan Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "80c3f221-eea0-4713-9fec-ca1ef7121b6b",
+      "Id": "0013k00003H1uzpAAB",
+      "Name": "RaEl, Vhaashtay Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "e164bdfc-48ee-40dd-897c-d6edcfc8912e",
+      "Id": "0013k00003C4mB4AAJ",
+      "Name": "Redmond, Cathie Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Simchowitz, Stuart - 190SSI"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "134cd6fe-0e4b-4491-81f8-81afe2920f64",
+      "Id": "0013k00003Af57aAAB",
+      "Name": "Ringo, Johne Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "9e7f4f6f-e845-457f-9a8b-810da2cc50d2",
+      "Id": "0013k00003C42bpAAB",
+      "Name": "Riverdale Family Dental",
+      "Type": "Entity",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, M./Russo, R. - 2CLMGR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "a5d493ce-883b-4eb5-bad9-8ebc677f2b55",
+      "Id": "0013k00002hmQKEAA2",
+      "Name": "Rivitz, Robert Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "32d3bbb2-7acb-4939-a047-7204c16dccec",
+      "Id": "0013k00002qekSpAAI",
+      "Name": "Robson, Julie Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "d966373d-1246-4f0c-9a76-b57be11fca7d",
+      "Id": "0013k00002cEFN7AAO",
+      "Name": "Rodriguez, Beatrice Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "cc1aaf71-bdc5-4646-aea8-e971be942d35",
+      "Id": "0013k00002riXH6AAM",
+      "Name": "Rodriguez, Leonardo Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "4c2d8296-2c2f-473c-90ed-b87fbbd184a4",
+      "Id": "0013k000033QLimAAG",
+      "Name": "Rooney, Brian Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "e1b0faef-8966-4d52-83c9-557f622955f9",
+      "Id": "0013k0000349YFjAAM",
+      "Name": "Rooney, Brian Houshold",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "DeGrau, Ryan - 204RDE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "f557e9b8-69b5-447d-95d4-ba4323441cf9",
+      "Id": "0013k00002cEFNJAA4",
+      "Name": "Rosner, Jeffrey Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, D./Majtenyi, E./Russo, J. - 264RMR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "f05b408f-07b0-4782-bab7-8ad7392adcdd",
+      "Id": "0013k00002vjQBXAA2",
+      "Name": "Ross, Bernard Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "a2b1e810-e3de-4d85-bae5-80338f73c07c",
+      "Id": "0013k00002cEFNXAA4",
+      "Name": "Russell, Carson Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "5b58fc16-33eb-4edd-8e87-2ff2784c48d2",
+      "Id": "0013k00002cEFNfAAO",
+      "Name": "Russo, Teresa Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "5950b388-cf98-42c8-bfbb-d41aa08c8603",
+      "Id": "0013k00002cEFNoAAO",
+      "Name": "Saglam, Cynthia Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "c2e504a1-c13d-4d63-9656-d2caf9fde9d1",
+      "Id": "0013k000032Xuh7AAC",
+      "Name": "Saleh, Sameer Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "DeGrau, Ryan - 204RDE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "849868c6-4f9a-47da-999a-f659d21263c5",
+      "Id": "0013k00002cEFNsAAO",
+      "Name": "Saliani, Gayle Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "89b867a0-f60f-45ad-803b-24ecf20ebb07",
+      "Id": "0013k00002lBTVYAA4",
+      "Name": "Schwartz, Chaim Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Simchowitz, Stuart - 190SSI"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "b6a0d65e-20e3-495b-aa1b-1ee40cc53849",
+      "Id": "0013k00002cEFOjAAO",
+      "Name": "Sempier, Janet Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "a465fbb3-39e2-41e5-9828-a3f4ca9bdaa2",
+      "Id": "0013k00002kG8bJAAS",
+      "Name": "Serio, Allison Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "acb36ebb-7d43-463a-b782-d0565b3702be",
+      "Id": "0013k00002cEFP6AAO",
+      "Name": "Siegrist-Noonan, Cynthia Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, D./Majtenyi, E./Russo, J. - 264RMR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "43767ee8-a5d4-4abc-be00-6cc67e0af895",
+      "Id": "0013k00003Gz0oyAAB",
+      "Name": "Singh, Rani Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "67220999-3408-4c8c-a322-66b693e9cc9d",
+      "Id": "0013k00002cEFQ0AAO",
+      "Name": "Stephenson, Dennis Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CMTWH"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "1a98b087-5713-4c06-b29e-78fc4348df5c",
+      "Id": "0013k00003FNSMtAAP",
+      "Name": "Stockhoff, Stephen Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "5a3cc166-8f37-44f7-a53b-8ab2b4ed7699",
+      "Id": "0013k00003ISYiAAAX",
+      "Name": "Stoute, Kevin Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "3ff92023-3756-4289-b0ae-9b04841dd04c",
+      "Id": "0013k00002qeiPqAAI",
+      "Name": "Sullivan, John Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "382af14a-fcb8-4962-bbc9-ea278107c6ce",
+      "Id": "0013k00003Af57ZAAR",
+      "Name": "Sutton, William Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "92086de6-e20c-4e80-b819-890892e79706",
+      "Id": "0013k00002t3RIqAAM",
+      "Name": "Tan, Putri Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "05cbf0a5-a62a-4bb3-bc7f-2fd86a4921a0",
+      "Id": "0013k00003Af5iqAAB",
+      "Name": "Tantum, Michael Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "351cdb11-6287-42de-918a-da72e603c52e",
+      "Id": "0013k00002cEFQVAA4",
+      "Name": "Terchek, Thomas Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, D./Russo, R. - 21ADRR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "45830e9e-cef5-4426-83fe-935742e724eb",
+      "Id": "0013k00002cEFQfAAO",
+      "Name": "Tilton, Joelle Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CKGDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "9caf4c0f-87bd-4d66-b4a8-6742246abba7",
+      "Id": "0013k00002cEFQlAAO",
+      "Name": "Torcivia, Salvatore Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "670512ab-dac4-4eed-8d07-72abc7ca0850",
+      "Id": "0013k00003H1v4BAAR",
+      "Name": "Valdez, Nestar Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "0120cf96-f3bb-4f9d-8169-38b5bc2ea177",
+      "Id": "0013k00002cEFR5AAO",
+      "Name": "Van Ginderen, Joseph Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "c2e209fa-9389-4b22-a091-1d592fc9b155",
+      "Id": "0013k00003FNRmhAAH",
+      "Name": "Vaughn, Sean Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "6f79714a-9b18-42a6-b894-fe7d1e66b67f",
+      "Id": "0013k00003ITIh5AAH",
+      "Name": "Vella, Joe Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "cfc1f615-c3b0-4122-bad8-4c20b66e2a0c",
+      "Id": "0013k00003Af5CKAAZ",
+      "Name": "Wagner, Robert Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "f38d91f7-dee3-47ee-8174-7ae948eb5e2b",
+      "Id": "0013k00002cEFRRAA4",
+      "Name": "Wakefield, Malorie Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, Douglas - 203DRO"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "7afbbc31-d0dc-43cc-9d3c-61012a0ec77f",
+      "Id": "0013k00002riXHFAA2",
+      "Name": "Walker, Alana Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Catapano, Charles (NYPD/PEP) - 2BKRCL"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "ae380419-cead-42fe-b5f6-950ee6924180",
+      "Id": "0013k00002cEFReAAO",
+      "Name": "Wang, Nancy Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "DeGrau, R./Mondschein, J. - 21XRDM"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "3ed4ae41-61b5-45a2-8946-5fec6cea7ee9",
+      "Id": "0013k00002cEFVyAAO",
+      "Name": "Weaver, Kenneth Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Simchowitz, Stuart - 190SSI"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "da92833c-cd3d-4350-b3e8-3c40f90f1b2c",
+      "Id": "0013k00003H1v2KAAR",
+      "Name": "West-Martin, Derrick Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2CQPEP"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "79b1f24a-2f01-49b7-bf5a-79e38dba3afd",
+      "Id": "0013k00002cEFS9AAO",
+      "Name": "Williams, Matthew & Jee Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "82fb2fe5-ea86-4de1-8544-251c6cbda0aa",
+      "Id": "0013k00002cEFSWAA4",
+      "Name": "Young, Tera Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Guido, Marc - 2AYMGU"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "d881108d-d4f8-4b93-8dcc-447d76f55509",
+      "Id": "0013k00002cEFSbAAO",
+      "Name": "Zelek, Daniel Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Roth, D./Majtenyi, E./Russo, J. - 264RMR"
+    },
+    {
+      "@odata.etag": "",
+      "ItemInternalId": "ad577658-cf16-43ea-bc7a-b1e4fd326e2a",
+      "Id": "0013k00003B9J53AAF",
+      "Name": "Zuccone, Matt Household",
+      "Type": "Household",
+      "ServicingAdvisorRepCode__c": "Guido, Marc - 2AYMGU",
+      "WritingAdvisorRep__c": "Levens, Matthew (PEP) - 289MLE"
+    }
+  ]

@@ -1,0 +1,45 @@
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+.gridContainer {
+  display: grid;
+  grid-template-columns: minmax(200px, 350px) minmax(500px, auto);
+  grid-template-rows: minmax(auto, 700px) 100px; 
+  grid-gap: 10px;
+}
+.gridItem1{
+  display: grid;
+}
+
+.gridItem2{
+  display: grid;
+  overflow: scroll;
+}
+.gridItem3{
+  display: grid;
+}
+
+.advisorDashboard {
+  .headerStyle {
+    text-align: center;
+  }
+  .container {    
+    margin: 0px auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  margin-left:0px;
+  background-color: red ;
+  }
+
+  .main{
+    margin: 50px !important;
+    background-color: gray ;
+    border: gray;
+    border-style: groove;
+    border-width: 5px;
+    color: aqua;
+  }
+
+}

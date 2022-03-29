@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "rmrwealth-sharepoint-solution-client-side-solution",
+    "id": "5f1602c8-7e69-4eae-86d2-0c7fda594739",
+    "version": "1.0.0.1",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "webApiPermissionRequests": [ 
+      {
+        "resource": "Microsoft Graph", 
+        "scope": "Calendars.Read" 
+      }
+    ],
+    "developer": {
+      "name": "Christopher Stoiber",
+      "websiteUrl": "https://react-365.com",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.13.1"
+    }
+  },
+  "paths": {
+    "zippedPackage": "solution/rmrwealth-sharepoint-solution.sppkg"
+  }
+}
