@@ -13,18 +13,20 @@ function WorkingFolders(props: any) {
     setServerRelativeUrl(folder.ServerRelativeUrl.replace('/sites/operationsteam/',''));
   }
 
+  let dir = props.relationshipType.replace(/\s+/g, '');
+
   return (
     <div>
       <FolderExplorer
         context={props.context}
         siteAbsoluteUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
         rootFolder={{
-          Name: "Household Working Files",
-          ServerRelativeUrl: `/sites/operationsteam/HouseholdWorkingFiles/${props.relationship}`,
+          Name: `${props.relationshipType} Working Files`,
+          ServerRelativeUrl: `/sites/operationsteam/${dir}WorkingFiles/${props.relationship}`,
         }}
         defaultFolder={{
-          Name: "Household Working Files",
-          ServerRelativeUrl: `/sites/operationsteam/HouseholdWorkingFiles/${props.relationship}`,
+          Name: `${props.relationshipType} Working Files`,
+          ServerRelativeUrl: `/sites/operationsteam/${dir}WorkingFiles/${props.relationship}`,
         }}
         onSelect={_onFolderSelect}
         canCreateFolders={true}

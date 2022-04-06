@@ -76,7 +76,8 @@ export class SharePointServiceManager {
         });
     }
 
-    public getOperations(relativeEndPointUrl: string): Promise<any>{        
+    public getOperations(relativeEndPointUrl: string): Promise<any>{
+        console.log('getOperations', `https://rmrwealth1.sharepoint.com/sites/operationsteam${relativeEndPointUrl}`);     
         return this.context.spHttpClient.get(`https://rmrwealth1.sharepoint.com/sites/operationsteam${relativeEndPointUrl}`, SPHttpClient.configurations.v1).then(response => {
             if(!response.ok) return Promise.reject('Get Request Failed');
             return response.json();
@@ -86,10 +87,11 @@ export class SharePointServiceManager {
     }
 
     public _getWorkignFilesTemp(listUrl:string):Promise<IListItemCollection>{
-        return this.getOperations(`/_api/web/getFolderByServerRelativeUrl('${listUrl}')/files`)
+        return this.getOperations(`/_api/web/getFolderByServerRelativeUrl('${listUrl}')/files`);
     }
     
     public post(relativeEndPointUrl: string, spOpts:any): Promise<any>{
+        console.log('posting................',relativeEndPointUrl,spOpts);
         return this.context.spHttpClient.post(`${relativeEndPointUrl}`, SPHttpClient.configurations.v1,spOpts).then(response => {
             if(!response.ok) return Promise.reject('post Request Failed');
             return response.json();
@@ -98,9 +100,15 @@ export class SharePointServiceManager {
         });
     }
 
+    public _postCheckLogFile(listUrl:string,spOpts:any):Promise<IListItemCollection>{
+        return this.post(listUrl,spOpts);
+    }
+
+    //var url = `https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/Web/GetFolderByServerRelativeUrl('Test')/Files/Add(url='${file.name}', overwrite=true)`; example URL 
     public _postWorkignFiles(listUrl:string, spOpts:any):Promise<IListItemCollection>{
         return this.post(listUrl,spOpts);
     }
+
 
 //$select=Title,RelationshipType,WritingAdvisorRep__c,ServicingAdvisorRepCode,RelationshipId,OwnerName,CreatedInSalesForce,RecordTypeName,RepCode
 //$filter=${Query}&
@@ -124,7 +132,7 @@ export class SharePointServiceManager {
     }
 
     public getRelationshipCheckLogsSP(RelationshipID: string): Promise<any>{ 
-        return this.context.spHttpClient.get(`https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/web/lists/GetById('ce2fd595-41d8-4ceb-a5dd-6c416a7befbe')/items?$select=*,Processor/EMail&$filter=RelationshipId eq '${RelationshipID}'&$expand=Processor`, SPHttpClient.configurations.v1).then(response => {
+        return this.context.spHttpClient.get(`https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/web/lists/GetById('ce2fd595-41d8-4ceb-a5dd-6c416a7befbe')/items?$select=*,ReadyforReview,Processor/EMail&$filter=RelationshipId eq '${RelationshipID}'&$expand=Processor`, SPHttpClient.configurations.v1).then(response => {
             if(!response.ok) return Promise.reject('Get Request Failed');
             return response.json();
         }).catch(error => {
@@ -196,6 +204,9 @@ export class SharePointServiceManager {
         return this.getCorresondenceLogsSP(relationshipID);
     }
 
+    public _getItem(url):Promise<IListItemCollection>{
+        return this.getOperations(url);
+    }
  
 
 

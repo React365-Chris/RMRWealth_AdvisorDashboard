@@ -47,7 +47,6 @@ function WorkingFiles(props: any) {
     for (var i = 0; i < files.length; i++) {
       var file = files[i];
       console.log(files[i].name);
-      debugger;
       let spOpts: ISPHttpClientOptions = {
         headers: {
           Accept: "application/json",
@@ -58,6 +57,7 @@ function WorkingFiles(props: any) {
 
       var url = `https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/Web/GetFolderByServerRelativeUrl('${props.ServerRelativeUrl}')/Files/Add(url='${file.name}', overwrite=true)`;
 
+      //${props.ServerRelativeUrl}
       SharePointService._postWorkignFiles(url,spOpts).then((resp) => {
         console.log('resp',resp);
         

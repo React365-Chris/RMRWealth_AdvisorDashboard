@@ -94,11 +94,13 @@ const groupByFields: IGrouping[] = [
   },
 ];
 
-function Relationships(props: any) {
+function MyRelationships(props: any) {
   const [isOpen, { setTrue: openPanel, setFalse: dismissPanel }] =
     useBoolean(false);
   const { description, panelType } = props;
   const [selectedRelationship, setSelectedRelationship] = useState();
+  const [selectedRelationshipType, setSelectedRelationshipType] = useState();
+  const [selectedRelationshipId, setSelectedRelationshipId] = useState();
   const [selectedItem, setSelectedItem] = useState([]);
   const [selectedItemCheckLog, setSelectedItemCheckLog] = useState([]);
   const [selectedItemCorrespondenceLog, setSelectedItemCorrespondenceLog] = useState([]);
@@ -107,6 +109,9 @@ function Relationships(props: any) {
   function _getSelection(item: any[]) {
     setSelectedItem(item[0]);
     setSelectedRelationship(item[0].Title);
+    setSelectedRelationshipId(item[0].RelationshipId);
+    setSelectedRelationshipType(item[0].RelationshipType);
+    
     // get CheckLogs
     SharePointService.getRelationshipCheckLogs(item["0"].RelationshipId).then(
       (res) => {
@@ -175,6 +180,7 @@ function Relationships(props: any) {
                 <CheckLog
                   items={selectedItemCheckLog}
                   name={selectedRelationship}
+                  relid={selectedRelationshipId}
                   context={props.context}
                 />
               </div>
@@ -184,7 +190,7 @@ function Relationships(props: any) {
                   context={props.context} />
             </PivotItem>
             <PivotItem headerText="Working Files">
-              <WorkingFolders context={props.context} relationship={selectedRelationship} selectedItem={selectedItem} />
+              <WorkingFolders context={props.context} relationship={selectedRelationship} selectedItem={selectedItem} relationshipType={selectedRelationshipType} />
             </PivotItem>
             <PivotItem headerText="Shared with me">
               <Label styles={labelStyles}>Marketing</Label>
@@ -197,4 +203,4 @@ function Relationships(props: any) {
 }
 
 
-export default Relationships;
+export default MyRelationships;

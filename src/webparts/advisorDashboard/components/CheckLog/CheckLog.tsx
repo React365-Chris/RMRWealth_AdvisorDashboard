@@ -35,6 +35,12 @@ import {
   IStackItemStyles,
 } from "@fluentui/react";
 import { FilePicker, IFilePickerResult } from '@pnp/spfx-controls-react/lib/FilePicker';
+import SharePointService from "../../../../Services/SharePointService";
+import {
+  ISPHttpClientOptions,
+  SPHttpClient,
+  SPHttpClientResponse,
+} from "@microsoft/sp-http";
 
 const headerStyle = mergeStyles({
   textAlign: "center",
@@ -93,14 +99,13 @@ function CheckLog(props: any) {
   const [isOpenUpload, { setTrue: openUploadPanel, setFalse: dismissUploadPanel }] =
     useBoolean(false);
   const [doc, setDoc] = useState({
-    Id: "",
+    Id: 0,
     Title: "",
     CheckAmount: "",
     AccountNumber: "",
     BranchReceived0Id: "",
     CheckNumber: "",
     Contact2Name: "",
-    Contact2Id: "",
     ContactName: "",
     Created: "",
     Modified: "",
@@ -115,36 +120,14 @@ function CheckLog(props: any) {
     EntityName: "",
     Query: "",
     Notes: "",
-    //Processor:"",
-    //ProcessorEMail:"",
+    //Processor:""
   });
-  const [docU, setUploadDoc] = useState({
-    Id: "",
-    Title: "",
-    CheckAmount: "",
-    AccountNumber: "",
-    BranchReceived0Id: "",
-    CheckNumber: "",
-    Contact2Name: "",
-    Contact2Id: "",
-    ContactName: "",
-    Created: "",
-    Modified: "",
-    DateForwarded: "",
-    DateReceived: "",
-    ForwardedTo: "",
-    ReadyforReview: "",
-    RelationshipId: "",
-    RelationshipName: "",
-    ServerRedirectedEmbedUri: "",
-    TrackingInformation: "",
-    EntityName: "",
-    Query: "",
-    Notes: "",
-    Processor:""
-  });
+  
   const [checkStatus, setStatus] = useState(false);
   const [processorEmail, setProcessor] = useState();
+  const [uploadID, setUploadID] = useState();
+  const [CheckLogID, setCheckLogID] = useState(0);
+  const [uploadButtons, setUploadButtons] = useState(false);
 
   function _getSelection(items: any[]) {
     if (items[0].ReadyforReview == "Reviewed") {
@@ -160,7 +143,7 @@ function CheckLog(props: any) {
       AccountNumber: items[0].AccountNumber,
       BranchReceived0Id: items[0].BranchReceived0Id,
       CheckNumber: items[0].CheckNumber,
-      Contact2Id: items[0].Contact2Id,
+      Contact2Name: items[0].Contact2Name,
       ContactName: items[0].ContactName,
       Created: items[0].Created,
       Modified: items[0].Modified,
@@ -173,7 +156,6 @@ function CheckLog(props: any) {
       ServerRedirectedEmbedUri: items[0].ServerRedirectedEmbedUri,
       TrackingInformation: items[0].TrackingInformation,
       EntityName: items[0].EntityName,
-      Contact2Name: items[0].Contact2Name,
       Query: "RelationshipId eq '" + items[0].RelationshipId + "'",
       Notes: items[0].Notes,
       //Processor: items[0].Processor.EMail,
@@ -183,8 +165,8 @@ function CheckLog(props: any) {
   }
   function onSelectedRelationshipUpload(data: { key: string; name: string }[]) {
     for (const item of data) {
-      setUploadDoc({
-        ...docU,
+      setDoc({
+        ...doc,
         RelationshipId: item.key,
         RelationshipName: item.name,
         Query: "RelationshipId eq '" + item.key + "'",
@@ -255,24 +237,309 @@ function CheckLog(props: any) {
     [dismissPanel]
   );
 
+  
+
+  
+
+  function _getDropFiles(files: any[]) {
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      let spOpts: ISPHttpClientOptions = {
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: file,         
+      };
+
+      var url = `https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/Web/GetFolderByServerRelativeUrl('CheckDeposits')/Files/Add(url='${file.name}', overwrite=true)`;
+
+      SharePointService._postWorkignFiles(url,spOpts).then((resp) => {
+      //console.log('resp.UniqueId',resp.UniqueId);
+       setUploadButtons(true);
+       let fileName = resp.Name;
+       url = "/_api/web/lists/getbytitle('Check Deposits')/Items?$filter=FileLeafRef eq '"+fileName+"'&$select=Id";
+       
+       SharePointService._getItem(url).then((resp) => {
+        //set ID in State
+        //setCheckLogID(resp.value[0].Id);
+        setDoc({
+          ...doc,
+          Id: resp.value[0].Id
+        });
+        const body: string = JSON.stringify({
+          'RelationshipName': props.name,
+          'RelationshipId': props.relid,             
+          });
+
+         let spOpts: ISPHttpClientOptions = {
+          headers: {
+            'Accept': 'application/json;odata=nometadata',
+            'IF-MATCH': '*',
+            'X-HTTP-Method': 'PATCH'
+            },
+          body: body        
+        };
+
+         var url = `https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/web/lists/getbytitle('Check Deposits')/Items(${resp.value[0].Id})`;
+         //save to State, change filename, relationship, RelID, and set status
+         SharePointService._postCheckLogFile(url,spOpts).then((resp) => {
+          console.log('file updated', resp); 
+          //clear state
+
+         })
+       });
+
+      });
+    openUploadPanel();
+  }
+}
+
+function UploadPanel({ document }) {
+  const [docU, setDocU] = useState({
+    CheckAmount: "",
+    AccountNumber: "",
+    BranchReceived0Id: "",
+    CheckNumber: "",
+    Contact2Name: "",
+    ContactName: "",
+    Created: "",
+    Modified: "",
+    DateForwarded: "",
+    DateReceived: "",
+    ForwardedTo: "",
+    ReadyforReview: "",
+    RelationshipId: "",
+    RelationshipName: "",
+    ServerRedirectedEmbedUri: "",
+    TrackingInformation: "",
+    EntityName: "",
+    Notes: "",
+  });
+  function saveUploadPanel() {
+    const body: string = JSON.stringify({            
+      "CheckAmount": "123456"
+      /* CheckNumber: docU.CheckNumber,
+      DateReceived: docU.DateReceived,
+      ContactName: docU.ContactName,
+      //'ContactId': doc.ContactId,
+      Contact2Name: docU.Contact2Name,
+      //'Contact2Id': doc.Contact2Id,
+      EntityName: docU.EntityName,
+      //'EntityId': doc.EntityId,
+      BranchReceived0: docU.BranchReceived0Id,
+      AccountNumber: docU.AccountNumber,
+      DateForwarded: docU.DateForwarded,
+      ForwardedTo: docU.ForwardedTo,
+      TrackingInformation: docU.TrackingInformation,
+      Notes: docU.Notes, */
+    });
+
+    let spOpts: ISPHttpClientOptions = {
+      headers: {
+        "Accept": "application/json;odata=nometadata",
+        'Content-type': 'application/json;odata=nometadata',
+        "IF-MATCH": "*",
+        "X-HTTP-Method": "MERGE",
+      },
+      body: body,
+    };
+
+    //CheckDeposits
+    debugger;
+    var url = `https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/web/lists/getbytitle('Check Deposits')/Items(${document.Id})`;
+ 
+    //***********THE CHECKLOG ID IS LOST HERE, WHY? *////////////////////////////////
+    console.log("saveUrl Uploaded File***************", url);
+    //save to State, change filename, relationship, RelID, and set status
+    SharePointService._postCheckLogFile(url, spOpts).then((resp) => {
+      console.log("file updated", resp);
+      //clear state
+    });
+    dismissPanel();
+  }
+
   const onRenderUploadFooterContent = React.useCallback(
     () => (
       <div>
-        <PrimaryButton onClick={dismissUploadPanel} styles={buttonStyles}>
+        <PrimaryButton
+          onClick={saveUploadPanel}
+          styles={buttonStyles}
+        >
           Save
         </PrimaryButton>
-        <DefaultButton onClick={dismissUploadPanel}>Cancel</DefaultButton>
       </div>
     ),
     [dismissPanel]
   );
 
-
-  function _getDropFiles(items: any[]) {
-    console.log('Selected items:', items);
-    debugger;
-    openUploadPanel();
-  }
+  return (
+    <Panel
+      headerText="Upload and set metadata"
+      isOpen={isOpenUpload}
+      onDismiss={dismissUploadPanel}
+      isLightDismiss
+      closeButtonAriaLabel="Close"
+      onRenderFooterContent={onRenderUploadFooterContent}
+      isFooterAtBottom={true}
+    >
+      <Stack tokens={{ childrenGap: 20 }}>
+        <form className="document-form">
+          <ListItemPicker
+            listId="3778936d-84b1-42b0-9170-f7420b0b6c6a"
+            columnInternalName="Title"
+            keyColumnInternalName="RelationshipId"
+            orderBy={"Title asc"}
+            itemLimit={1}
+            onSelectedItem={onSelectedRelationshipUpload}
+            context={props.context}
+            label="Relationship Name"
+            noResultsFoundText="Please enter text search relationships"
+            enableDefaultSuggestions={true}
+            webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
+            filter={`RelationshipId eq '${props.relid}'`}
+          />
+          <ListItemPicker
+            listId="4aa13b13-11ea-426e-a08c-ea27f5c709c8"
+            columnInternalName="Title"
+            keyColumnInternalName="ContactId"
+            orderBy={"Title asc"}
+            itemLimit={1}
+            filter={document.Query}
+            onSelectedItem={onSelectedContactUpload}
+            context={props.context}
+            label="Contact Name"
+            noResultsFoundText="Please enter text search contacts"
+            webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
+            placeholder={document.ContactName}
+            enableDefaultSuggestions={true}
+          />
+          <ListItemPicker
+            listId="4aa13b13-11ea-426e-a08c-ea27f5c709c8"
+            columnInternalName="Title"
+            keyColumnInternalName="ContactId"
+            orderBy={"Id desc"}
+            itemLimit={1}
+            onSelectedItem={onSelectedContact2Upload}
+            context={props.context}
+            label="Contact 2 Name"
+            noResultsFoundText="Please enter text search contacts"
+            webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
+            placeholder={document.Contact2Name}
+            enableDefaultSuggestions={true}
+            filter={document.Query}
+          />
+          <ListItemPicker
+            listId="3cc6cf64-7198-4d55-921a-84b084bf9e0d"
+            columnInternalName="Title"
+            keyColumnInternalName="EntityId"
+            orderBy={"Id desc"}
+            itemLimit={1}
+            onSelectedItem={onSelectedEntity}
+            context={props.context}
+            label="Entity Name"
+            noResultsFoundText="Please enter text search entities"
+            webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
+            placeholder={doc.EntityName}
+            enableDefaultSuggestions={true}
+            filter={doc.Query}
+          />
+          <DateTimePicker
+            label="Date Received"
+            dateConvention={DateConvention.Date}
+            showLabels={false}
+          />
+          <ComboBoxListItemPicker
+            listId="8dc913e1-df23-43d9-a386-1d16f8be52df"
+            columnInternalName="Title"
+            keyColumnInternalName="Id"
+            label="Branch Received"
+            onSelectedItem={onSelectedBranchUpload}
+            webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
+            spHttpClient={props.context.spHttpClient}
+          />
+          <TextField
+            label="Check Amount"
+            required
+            onChange={(e) => {
+              setDocU({
+                ...docU,
+                CheckAmount: (e.target as HTMLInputElement).value,
+              });
+            }}
+          />
+          <TextField
+            label="Check Number"
+            required
+            onChange={(e) => {
+              setDoc({
+                ...doc,
+                CheckNumber: (e.target as HTMLInputElement).value,
+              });
+            }}
+          />
+          <TextField
+            label="Account Number"
+            required
+            onChange={(e) => {
+              setDoc({
+                ...doc,
+                AccountNumber: (e.target as HTMLInputElement).value,
+              });
+            }}
+          />
+          <DateTimePicker
+            label="Date Forwarded"
+            dateConvention={DateConvention.Date}
+            showLabels={false}
+          />
+          <TextField
+            label="Forwarded To"
+            onChange={(e) => {
+              setDoc({
+                ...doc,
+                ForwardedTo: (e.target as HTMLInputElement).value,
+              });
+            }}
+          />
+          <PeoplePicker
+            context={props.context}
+            titleText="Processor"
+            personSelectionLimit={1}
+            showtooltip={true}
+            required={false}
+            groupName={"Operations Members"}
+            onChange={_getPeoplePickerItems}
+            showHiddenInUI={false}
+            principalTypes={[PrincipalType.User]}
+            resolveDelay={1000}
+          />
+          <TextField
+            label="Tracking Info"
+            onChange={(e) => {
+              setDoc({
+                ...doc,
+                TrackingInformation: (e.target as HTMLInputElement).value,
+              });
+            }}
+          />
+          <TextField
+            label="Notes"
+            multiline
+            autoAdjustHeight
+            onChange={(e) => {
+              setDoc({
+                ...doc,
+                Notes: (e.target as HTMLInputElement).value,
+              });
+            }}
+          />
+        </form>
+      </Stack>
+    </Panel>
+  );
+}
+    
 
   return (
     <div>
@@ -493,170 +760,7 @@ function CheckLog(props: any) {
               </form>
             </Stack>
           </Panel>
-          <Panel
-            headerText="Upload and set metadata"
-            isOpen={isOpenUpload}
-            onDismiss={dismissUploadPanel}
-            isLightDismiss
-            closeButtonAriaLabel="Close"
-            onRenderFooterContent={onRenderUploadFooterContent}
-            isFooterAtBottom={true}
-          >
-            <Stack tokens={{ childrenGap: 20 }}>
-              <form className="document-form">                
-                <ListItemPicker
-                  listId="3778936d-84b1-42b0-9170-f7420b0b6c6a"
-                  columnInternalName="Title"
-                  keyColumnInternalName="RelationshipId"
-                  orderBy={"Title asc"}
-                  itemLimit={1}
-                  onSelectedItem={onSelectedRelationshipUpload}
-                  context={props.context}
-                  label="Relationship Name"
-                  noResultsFoundText="Please enter text search relationships"
-                  enableDefaultSuggestions={true}
-                  webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
-                  //defaultSelectedItems={props.name}
-                  //placeholder={doc.RelationshipName}
-                />
-                <ListItemPicker
-                  listId="4aa13b13-11ea-426e-a08c-ea27f5c709c8"
-                  columnInternalName="Title"
-                  keyColumnInternalName="ContactId"
-                  orderBy={"Title asc"}
-                  itemLimit={1}
-                  filter={docU.Query}
-                  onSelectedItem={onSelectedContactUpload}
-                  context={props.context}
-                  label="Contact Name"
-                  noResultsFoundText="Please enter text search contacts"
-                  webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
-                  placeholder={docU.ContactName}
-                  enableDefaultSuggestions={true}
-                />
-                <ListItemPicker
-                  listId="4aa13b13-11ea-426e-a08c-ea27f5c709c8"
-                  columnInternalName="Title"
-                  keyColumnInternalName="ContactId"
-                  orderBy={"Id desc"}
-                  itemLimit={1}
-                  onSelectedItem={onSelectedContact2Upload}
-                  context={props.context}
-                  label="Contact 2 Name"
-                  noResultsFoundText="Please enter text search contacts"
-                  webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
-                  placeholder={docU.Contact2Name}
-                  enableDefaultSuggestions={true}
-                  filter={docU.Query}
-                />
-                <ListItemPicker
-                  listId="3cc6cf64-7198-4d55-921a-84b084bf9e0d"
-                  columnInternalName="Title"
-                  keyColumnInternalName="EntityId"
-                  orderBy={"Id desc"}
-                  itemLimit={1}
-                  onSelectedItem={onSelectedEntity}
-                  context={props.context}
-                  label="Entity Name"
-                  noResultsFoundText="Please enter text search entities"
-                  webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
-                  placeholder={docU.EntityName}
-                  enableDefaultSuggestions={true}
-                  filter={docU.Query}
-                />
-                <DateTimePicker
-                  label="Date Received"
-                  dateConvention={DateConvention.Date}
-                  showLabels={false}
-                />
-                <ComboBoxListItemPicker
-                  listId="8dc913e1-df23-43d9-a386-1d16f8be52df"
-                  columnInternalName="Title"
-                  keyColumnInternalName="Id"
-                  label="Branch Received"
-                  onSelectedItem={onSelectedBranchUpload}
-                  webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
-                  spHttpClient={props.context.spHttpClient}
-                />
-                <TextField
-                  label="Check Amount"
-                  required
-                  onChange={(e) => {
-                    setDoc({
-                      ...docU,
-                      CheckAmount: (e.target as HTMLInputElement).value,
-                    });
-                  }}
-                />
-                <TextField
-                  label="Check Number"
-                  required
-                  onChange={(e) => {
-                    setDoc({
-                      ...docU,
-                      CheckNumber: (e.target as HTMLInputElement).value,
-                    });
-                  }}
-                />
-                <TextField
-                  label="Account Number"
-                  required
-                  onChange={(e) => {
-                    setDoc({
-                      ...docU,
-                      AccountNumber: (e.target as HTMLInputElement).value,
-                    });
-                  }}
-                />
-                <DateTimePicker
-                  label="Date Forwarded"
-                  dateConvention={DateConvention.Date}
-                  showLabels={false}
-                />
-                <TextField
-                  label="Forwarded To"
-                  onChange={(e) => {
-                    setDoc({
-                      ...docU,
-                      ForwardedTo: (e.target as HTMLInputElement).value,
-                    });
-                  }}
-                />
-                <PeoplePicker
-                  context={props.context}
-                  titleText="Processor"
-                  personSelectionLimit={1}
-                  showtooltip={true}
-                  required={false}
-                  groupName={"Operations Members"}
-                  onChange={_getPeoplePickerItems}
-                  showHiddenInUI={false}
-                  principalTypes={[PrincipalType.User]}
-                  resolveDelay={1000}
-                />
-                <TextField
-                  label="Tracking Info"
-                  onChange={(e) => {
-                    setDoc({
-                      ...docU,
-                      TrackingInformation: (e.target as HTMLInputElement).value,
-                    });
-                  }}
-                />
-                <TextField
-                  label="Notes"
-                  multiline
-                  autoAdjustHeight
-                  onChange={(e) => {
-                    setDoc({
-                      ...docU,
-                      Notes: (e.target as HTMLInputElement).value,
-                    });
-                  }}
-                />
-              </form>
-            </Stack>
-          </Panel>
+          <UploadPanel document={doc} />
         </div>
       )}
     </div>
