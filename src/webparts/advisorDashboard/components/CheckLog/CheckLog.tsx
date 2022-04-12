@@ -275,8 +275,10 @@ function CheckLog(props: any) {
          let spOpts: ISPHttpClientOptions = {
           headers: {
             'Accept': 'application/json;odata=nometadata',
+            'Content-type': 'application/json;odata=nometadata',
+            'odata-version': '',
             'IF-MATCH': '*',
-            'X-HTTP-Method': 'PATCH'
+            'X-HTTP-Method': 'PATCH',
             },
           body: body        
         };
@@ -287,7 +289,7 @@ function CheckLog(props: any) {
           console.log('file updated', resp); 
           //clear state
 
-         })
+         });
        });
 
       });

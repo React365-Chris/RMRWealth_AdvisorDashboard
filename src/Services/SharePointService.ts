@@ -93,9 +93,11 @@ export class SharePointServiceManager {
     public post(relativeEndPointUrl: string, spOpts:any): Promise<any>{
         console.log('posting................',relativeEndPointUrl,spOpts);
         return this.context.spHttpClient.post(`${relativeEndPointUrl}`, SPHttpClient.configurations.v1,spOpts).then(response => {
+            debugger;
             if(!response.ok) return Promise.reject('post Request Failed');
             return response.json();
         }).catch(error => {
+            alert(error);
             return Promise.reject(error);
         });
     }
