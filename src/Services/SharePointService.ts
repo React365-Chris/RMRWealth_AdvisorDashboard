@@ -91,9 +91,8 @@ export class SharePointServiceManager {
     }
     
     public post(relativeEndPointUrl: string, spOpts:any): Promise<any>{
-        console.log('posting................',relativeEndPointUrl,spOpts);
+        //console.log('posting................',relativeEndPointUrl,spOpts);
         return this.context.spHttpClient.post(`${relativeEndPointUrl}`, SPHttpClient.configurations.v1,spOpts).then(response => {
-            debugger;
             if(!response.ok) return Promise.reject('post Request Failed');
             return response.json();
         }).catch(error => {
@@ -102,8 +101,17 @@ export class SharePointServiceManager {
         });
     }
 
+    public postUpload(relativeEndPointUrl: string, spOpts:any): Promise<any>{
+        console.log('posting upload metadata................',relativeEndPointUrl,spOpts);
+        return this.context.spHttpClient.post(`${relativeEndPointUrl}`, SPHttpClient.configurations.v1,spOpts).then(response => {
+            return(response.status);
+        }).catch(error => {
+            alert('Error uploading and updating doucment' + error);
+        });
+    }
+
     public _postCheckLogFile(listUrl:string,spOpts:any):Promise<IListItemCollection>{
-        return this.post(listUrl,spOpts);
+        return this.postUpload(listUrl,spOpts);
     }
 
     //var url = `https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/Web/GetFolderByServerRelativeUrl('Test')/Files/Add(url='${file.name}', overwrite=true)`; example URL 

@@ -163,31 +163,9 @@ function CheckLog(props: any) {
     });
     openPanel();
   }
-  function onSelectedRelationshipUpload(data: { key: string; name: string }[]) {
-    for (const item of data) {
-      setDoc({
-        ...doc,
-        RelationshipId: item.key,
-        RelationshipName: item.name,
-        Query: "RelationshipId eq '" + item.key + "'",
-      });
-    }
-  }
-  function onSelectedContactUpload(data: { key: string; name: string }[]) {
-    for (const item of data) {
-      setDoc({ ...doc, ContactName: item.name });
-    }
-  }
-  function onSelectedContact2Upload(data: { key: string; name: string }[]) {
-    for (const item of data) {
-      setDoc({ ...doc, Contact2Name: item.name });
-    }
-  }
-  function onSelectedBranchUpload(data: { key: string; name: string }[]) {
-    for (const item of data) {
-      setDoc({ ...doc, BranchReceived0Id: item.key });
-    }
-  }
+
+ 
+
   function onSelectedRelationship(data: { key: string; name: string }[]) {
     for (const item of data) {
       setDoc({
@@ -198,6 +176,17 @@ function CheckLog(props: any) {
       });
     }
   }
+
+  /* function onSelectedRelationshipUpload(data: { key: string; name: string }[]) {
+    for (const item of data) {
+      setDoc({
+        ...doc,
+        RelationshipId: item.key,
+        RelationshipName: item.name,
+        Query: "RelationshipId eq '" + item.key + "'",
+      });
+    };
+  }; */
 
   function onSelectedContact(data: { key: string; name: string }[]) {
     for (const item of data) {
@@ -297,7 +286,8 @@ function CheckLog(props: any) {
   }
 }
 
-function UploadPanel({ document }) {
+function UploadPanel(props:any) {
+
   const [docU, setDocU] = useState({
     CheckAmount: "",
     AccountNumber: "",
@@ -318,9 +308,39 @@ function UploadPanel({ document }) {
     EntityName: "",
     Notes: "",
   });
-  function saveUploadPanel() {
+
+   function onSelectedContactUpload(data: { key: string; name: string }[]) {
+    for (const item of data) {
+      setDocU({ ...docU, ContactName: item.name });
+    }
+  }
+
+  function onSelectedContact2Upload(data: { key: string; name: string }[]) {
+    for (const item of data) {
+      setDocU({ ...docU, Contact2Name: item.name });
+    }
+  }
+
+  function onSelectedBranchUpload(data: { key: string; name: string }[]) {
+    for (const item of data) {
+      setDocU({ ...docU, BranchReceived0Id: item.key });
+    }
+  }
+
+  function onSelectedEntityUpload(data: { key: string; name: string }[]) {
+    for (const item of data) {
+      setDocU({ ...docU, EntityName: item.name });
+    }
+  }
+
+  function _getPeoplePickerItemsUpload(items: any[]) {
+    //console.log("Items:", items);
+  }
+
+  function saveUploadPanel(document) {
+    console.log('Saving checklog amount', document.Id, docU.CheckAmount)
     const body: string = JSON.stringify({            
-      "CheckAmount": "123456"
+      "CheckAmount": docU.CheckAmount
       /* CheckNumber: docU.CheckNumber,
       DateReceived: docU.DateReceived,
       ContactName: docU.ContactName,
@@ -348,15 +368,14 @@ function UploadPanel({ document }) {
     };
 
     //CheckDeposits
-    debugger;
     var url = `https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/web/lists/getbytitle('Check Deposits')/Items(${document.Id})`;
  
     //***********THE CHECKLOG ID IS LOST HERE, WHY? *////////////////////////////////
-    console.log("saveUrl Uploaded File***************", url);
+    //console.log("saveUrl Uploaded File***************", url);
     //save to State, change filename, relationship, RelID, and set status
     SharePointService._postCheckLogFile(url, spOpts).then((resp) => {
       console.log("file updated", resp);
-      //clear state
+      //clear state!!!!!!!!!!!!
     });
     dismissPanel();
   }
@@ -365,7 +384,7 @@ function UploadPanel({ document }) {
     () => (
       <div>
         <PrimaryButton
-          onClick={saveUploadPanel}
+          onClick={() => {debugger;saveUploadPanel(doc)}}
           styles={buttonStyles}
         >
           Save
@@ -388,32 +407,17 @@ function UploadPanel({ document }) {
       <Stack tokens={{ childrenGap: 20 }}>
         <form className="document-form">
           <ListItemPicker
-            listId="3778936d-84b1-42b0-9170-f7420b0b6c6a"
-            columnInternalName="Title"
-            keyColumnInternalName="RelationshipId"
-            orderBy={"Title asc"}
-            itemLimit={1}
-            onSelectedItem={onSelectedRelationshipUpload}
-            context={props.context}
-            label="Relationship Name"
-            noResultsFoundText="Please enter text search relationships"
-            enableDefaultSuggestions={true}
-            webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
-            filter={`RelationshipId eq '${props.relid}'`}
-          />
-          <ListItemPicker
             listId="4aa13b13-11ea-426e-a08c-ea27f5c709c8"
             columnInternalName="Title"
             keyColumnInternalName="ContactId"
             orderBy={"Title asc"}
             itemLimit={1}
-            filter={document.Query}
+            filter={props.query}
             onSelectedItem={onSelectedContactUpload}
             context={props.context}
             label="Contact Name"
             noResultsFoundText="Please enter text search contacts"
             webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
-            placeholder={document.ContactName}
             enableDefaultSuggestions={true}
           />
           <ListItemPicker
@@ -427,9 +431,8 @@ function UploadPanel({ document }) {
             label="Contact 2 Name"
             noResultsFoundText="Please enter text search contacts"
             webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
-            placeholder={document.Contact2Name}
             enableDefaultSuggestions={true}
-            filter={document.Query}
+            filter={props.query}
           />
           <ListItemPicker
             listId="3cc6cf64-7198-4d55-921a-84b084bf9e0d"
@@ -437,14 +440,13 @@ function UploadPanel({ document }) {
             keyColumnInternalName="EntityId"
             orderBy={"Id desc"}
             itemLimit={1}
-            onSelectedItem={onSelectedEntity}
+            onSelectedItem={onSelectedEntityUpload}
             context={props.context}
             label="Entity Name"
             noResultsFoundText="Please enter text search entities"
             webUrl="https://rmrwealth1.sharepoint.com/sites/operationsteam"
-            placeholder={doc.EntityName}
             enableDefaultSuggestions={true}
-            filter={doc.Query}
+            filter={props.query}
           />
           <DateTimePicker
             label="Date Received"
@@ -474,8 +476,8 @@ function UploadPanel({ document }) {
             label="Check Number"
             required
             onChange={(e) => {
-              setDoc({
-                ...doc,
+              setDocU({
+                ...docU,
                 CheckNumber: (e.target as HTMLInputElement).value,
               });
             }}
@@ -484,8 +486,8 @@ function UploadPanel({ document }) {
             label="Account Number"
             required
             onChange={(e) => {
-              setDoc({
-                ...doc,
+              setDocU({
+                ...docU,
                 AccountNumber: (e.target as HTMLInputElement).value,
               });
             }}
@@ -498,8 +500,8 @@ function UploadPanel({ document }) {
           <TextField
             label="Forwarded To"
             onChange={(e) => {
-              setDoc({
-                ...doc,
+              setDocU({
+                ...docU,
                 ForwardedTo: (e.target as HTMLInputElement).value,
               });
             }}
@@ -511,7 +513,7 @@ function UploadPanel({ document }) {
             showtooltip={true}
             required={false}
             groupName={"Operations Members"}
-            onChange={_getPeoplePickerItems}
+            onChange={_getPeoplePickerItemsUpload}
             showHiddenInUI={false}
             principalTypes={[PrincipalType.User]}
             resolveDelay={1000}
@@ -519,8 +521,8 @@ function UploadPanel({ document }) {
           <TextField
             label="Tracking Info"
             onChange={(e) => {
-              setDoc({
-                ...doc,
+              setDocU({
+                ...docU,
                 TrackingInformation: (e.target as HTMLInputElement).value,
               });
             }}
@@ -530,8 +532,8 @@ function UploadPanel({ document }) {
             multiline
             autoAdjustHeight
             onChange={(e) => {
-              setDoc({
-                ...doc,
+              setDocU({
+                ...docU,
                 Notes: (e.target as HTMLInputElement).value,
               });
             }}
@@ -568,7 +570,7 @@ function UploadPanel({ document }) {
             onDrop={_getDropFiles}
           />
           <Panel
-            headerText=""
+            headerText="Edit Check Log"
             isOpen={isOpen}
             onDismiss={dismissPanel}
             isLightDismiss
@@ -762,7 +764,7 @@ function UploadPanel({ document }) {
               </form>
             </Stack>
           </Panel>
-          <UploadPanel document={doc} />
+          <UploadPanel document={doc} id={doc.Id} query={doc.Query} context={props.context} />
         </div>
       )}
     </div>

@@ -24,6 +24,7 @@ import { SPHttpClient, SPHttpClientResponse } from "@microsoft/sp-http";
 import { LeftNav } from "./Navigation/Nav";
 import RepCodes from "./MyRepCodes/MyRepCodes";
 import { arraysEqual } from "office-ui-fabric-react";
+import PnPjsExample from "./PnPjsExample";
 
 export default class AdvisorDashboard extends React.Component<
   IAdvisorDashboardProps,
@@ -132,6 +133,10 @@ private addRepCodetoVar(item, index){
                 </div>
               </div>
               <div className={styles.gridItem2}>
+              
+              <Route path="/PnPjsExample" sensitive exact>
+                  <PnPjsExample context={this.props.context} />
+                </Route>
                 <Route path="/" sensitive exact>
                   <Dashboard items={this.state} context={this.props.context} />
                 </Route>

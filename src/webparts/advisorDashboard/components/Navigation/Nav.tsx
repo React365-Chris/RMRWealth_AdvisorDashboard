@@ -106,13 +106,6 @@ const FluentNav = withRouter(({ history }) => (
         customUrl:'/marketing',
         expandAriaLabel: 'Expand Parent link 2',
         collapseAriaLabel: 'Collapse Parent link 2',
-        links: [
-          {
-            name: 'Marketing Placeholder',
-            url: 'http://example.com',
-            target: '_blank',
-          },
-        ],
         isExpanded: false,   
       },
       {
