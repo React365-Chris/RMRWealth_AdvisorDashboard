@@ -20,7 +20,6 @@ import {
   Pivot,
   PivotItem,
 } from "office-ui-fabric-react";
-import { PropertyPaneFieldType } from "@microsoft/sp-property-pane";
 import CheckLog from "../CheckLog/CheckLog";
 import SharePointService from "../../../../Services/SharePointService";
 import CorrespondenceLog from "../CorrespondenceLog/CorrespondenceLog";

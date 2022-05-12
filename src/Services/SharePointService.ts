@@ -20,13 +20,15 @@ const RELATIONSHIP_LOGICAPP_ENDPOINT: string = 'https://prod-26.eastus2.logic.az
 //GetMyRepCodes Logic APP
 const REPCODE_LOGICAPP_ENDPOINT: string = 'https://prod-46.eastus2.logic.azure.com:443/workflows/14efa6e8a66a4972a046f68a35ce8042/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=66Ud0Z9DcBChcIGsjYeBwOYpAj2t2h43WXwq9118--s&Email=';
 
+
 //Branches = 8dc913e1-df23-43d9-a386-1d16f8be52df
 //Branch Advisors = cabe2cb8-4a8c-45c6-9fe4-61a952a35313
 //CheckLog = ce2fd595-41d8-4ceb-a5dd-6c416a7befbe
 //Correspondence = 5011a439-fc91-4da5-9d98-8bcc317c43db
 //RMR Rep Payouts = 2dd73365-9267-40f9-8411-c931668c2003
 //Relationships = 3778936d-84b1-42b0-9170-f7420b0b6c6a
-
+//Sig = f9c10533-42bb-46e8-b34d-c0aa7070b024
+//Complaints = 
 
 export class SharePointServiceManager {  
 
@@ -35,7 +37,7 @@ export class SharePointServiceManager {
 
     public setup(context: WebPartContext) : void{
         this.context = context;
-    } 
+    }  
 
     public getRepCodesLogicApp():Promise<any>{
         return this.context.httpClient.get(`${REPCODE_LOGICAPP_ENDPOINT+this.context.pageContext.user.email}`, HttpClient.configurations.v1).then(response => {
@@ -77,7 +79,7 @@ export class SharePointServiceManager {
     }
 
     public getOperations(relativeEndPointUrl: string): Promise<any>{
-        console.log('getOperations', `https://rmrwealth1.sharepoint.com/sites/operationsteam${relativeEndPointUrl}`);     
+        //console.log('getOperations', `https://rmrwealth1.sharepoint.com/sites/operationsteam${relativeEndPointUrl}`);     
         return this.context.spHttpClient.get(`https://rmrwealth1.sharepoint.com/sites/operationsteam${relativeEndPointUrl}`, SPHttpClient.configurations.v1).then(response => {
             if(!response.ok) return Promise.reject('Get Request Failed');
             return response.json();
@@ -142,7 +144,7 @@ export class SharePointServiceManager {
     }
 
     public getRelationshipCheckLogsSP(RelationshipID: string): Promise<any>{ 
-        return this.context.spHttpClient.get(`https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/web/lists/GetById('ce2fd595-41d8-4ceb-a5dd-6c416a7befbe')/items?$select=*,ReadyforReview,Processor/EMail&$filter=RelationshipId eq '${RelationshipID}'&$expand=Processor`, SPHttpClient.configurations.v1).then(response => {
+        return this.context.spHttpClient.get(`https://rmrwealth1.sharepoint.com/sites/operationsteam/_api/web/lists/GetById('ce2fd595-41d8-4ceb-a5dd-6c416a7befbe')/items?$select=*,ServerRedirectedEmbedUri,FileLeafRef,ReadyforReview,Processor/EMail,Processor/Title,BranchReceived0/Title,Editor/Title&$filter=RelationshipId eq '${RelationshipID}'&$expand=Processor,BranchReceived0,Editor`, SPHttpClient.configurations.v1).then(response => {
             if(!response.ok) return Promise.reject('Get Request Failed');
             return response.json();
         }).catch(error => {

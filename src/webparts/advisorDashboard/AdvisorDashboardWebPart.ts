@@ -12,7 +12,6 @@ import AdvisorDashboard from './components/AdvisorDashboard';
 import { IAdvisorDashboardProps } from './components/IAdvisorDashboardProps';
 import SharePointService from '../../Services/SharePointService';
 import { ThemeProvider, ThemeChangedEventArgs,IReadonlyTheme } from '@microsoft/sp-component-base';
-//import { Providers, SharePointProvider } from '@microsoft/mgt-spfx';
 import { getSP } from './pnpjsConfig';
 
 export interface IAdvisorDashboardWebPartProps {
@@ -35,7 +34,8 @@ export default class AdvisorDashboardWebPart extends BaseClientSideWebPart<IAdvi
     } */
 
     SharePointService.setup(this.context);
-    this._themeProvider = this.context.serviceScope.consume(
+
+  /*   this._themeProvider = this.context.serviceScope.consume(
       ThemeProvider.serviceKey
     );
 
@@ -44,7 +44,7 @@ export default class AdvisorDashboardWebPart extends BaseClientSideWebPart<IAdvi
     this._themeProvider.themeChangedEvent.add(
       this,
       this._handleThemeChangedEvent
-    );
+    ); */
         
   }
 

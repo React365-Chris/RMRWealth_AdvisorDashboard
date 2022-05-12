@@ -7,10 +7,10 @@
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
-    "webApiPermissionRequests": [ 
+    "webApiPermissionRequests": [
       {
-        "resource": "Microsoft Graph", 
-        "scope": "Calendars.Read" 
+        "resource": "Microsoft Graph",
+        "scope": "Calendars.Read"
       }
     ],
     "developer": {
@@ -19,7 +19,15 @@
       "privacyUrl": "",
       "termsOfUseUrl": "",
       "mpnId": "Undefined-1.13.1"
-    }
+    },
+    "features": [
+      {
+        "title": "rmrwealth-sharepoint-solution Feature",
+        "description": "The feature that activates elements of the rmrwealth-sharepoint-solution solution.",
+        "id": "690882c9-f572-442d-bceb-6b506b9fadbb",
+        "version": "1.0.0.0"
+      }
+    ]
   },
   "paths": {
     "zippedPackage": "solution/rmrwealth-sharepoint-solution.sppkg"

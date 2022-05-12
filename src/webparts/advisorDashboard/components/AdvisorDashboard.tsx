@@ -30,7 +30,7 @@ export default class AdvisorDashboard extends React.Component<
   IAdvisorDashboardProps,
   any
 > {
-  private _client: SPHttpClient = this.props.context.spHttpClient;
+  //private _client: SPHttpClient = this.props.context.spHttpClient;
   public repCodeArray = [];
   public relationshipArray = [];
 
