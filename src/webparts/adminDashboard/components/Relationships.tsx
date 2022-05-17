@@ -40,6 +40,7 @@ import SelectedNonDisclosure from "./SelectedNonDisclosure";
 import SelectedAlternativeInvestments from "./SelectedAlternativeInvestments";
 import SelectedAnnuities from "./SelectedAnnuities";
 import SelectedBITRIAAccounts from "./SelectedBITRIAAccounts";
+import SelectedDirectMutualFunds from "./SelectedDirectMutualFunds";
 
 const labelStyles: Partial<IStyleSet<ILabelStyles>> = {
   root: { marginTop: 10 },
@@ -61,7 +62,7 @@ const formatColumn = mergeStyles({
 const classNames = mergeStyleSets({
   controlWrapper: {
     display: "block",
-    marginBottom: "10px",
+    marginBottom: "0px",
     height: "650px",
   },
   listView: {
@@ -69,7 +70,6 @@ const classNames = mergeStyleSets({
   },
   controlList: {
     height: "350px",
-    borderBottom: "2px solid #a1a8ad",
   },
 });
 
@@ -215,7 +215,9 @@ function Relationships(props: any) {
                       />
                     </div>
                     <div className={classNames.controlList}>
-                      
+                      <SelectedDirectMutualFunds relationshipId={selectedRelationshipId}
+                       context={props.context}
+                       />
                     </div>
                     <div className={classNames.controlList}>
                       

@@ -15,17 +15,20 @@ import {
     FilePicker,
     IFilePickerResult,
   } from "@pnp/spfx-controls-react/lib/FilePicker";
+
   const classNames = mergeStyleSets({
     controlWrapper: {
       display: 'block',
-      marginBottom: '10px',
-      height: '650px'
+      height: '650px',
     },
     listView: {
-      height: "275px",
+      height: "310px",
     },
     mainStyle: {
       margin: '20px', 
+    },
+    controlHeader: {
+      margin:'0px'
     }
 });
 
@@ -35,7 +38,7 @@ const viewFields: IViewField[] = [
       displayName: "Name",
       isResizable: true,
       sorting: true,
-      minWidth: 200,
+      minWidth: 250,
       maxWidth: 350,
     },
     {
@@ -51,7 +54,7 @@ const viewFields: IViewField[] = [
         displayName: "Memo Reference Code",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 150,
         maxWidth: 350,
     },
     {
@@ -73,23 +76,32 @@ const viewFields: IViewField[] = [
         displayName: "Registration Type",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 120,
         maxWidth: 350,
     },
     {
         name: "InvestmentAmount",
-        displayName: "InvestmentAmount",
+        displayName: "Inv Amount",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 100,
         maxWidth: 350,
+        render: (item) => {
+          let val = item.InvestmentAmount;
+          if(val){
+            let amt = val.toLocaleString("en-US");
+            return <span>${amt}</span>;
+          }else{
+            return <span>$0.00</span>;
+          }
+        },
     },
     {
         name: "RepID.Title",
         displayName: "Rep Code",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 100,
         maxWidth: 350,
     },
     {
@@ -97,7 +109,7 @@ const viewFields: IViewField[] = [
         displayName: "Item Status",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 100,
         maxWidth: 350,
     },
     {
@@ -105,23 +117,23 @@ const viewFields: IViewField[] = [
         displayName: "Black Diamond",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 100,
         maxWidth: 350,
     },
     {
-        name: "Processor",
+        name: "Processor.Title",
         displayName: "Processor",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 100,
         maxWidth: 350,
     },
     {
         name: "RMRRIA",
-        displayName: "RMRRIA",
+        displayName: "RMR RIA",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 100,
         maxWidth: 350,
     },   
     {
@@ -176,9 +188,7 @@ function SelectedBITRIAAccounts(props:any) {
         ) : (
           <div>
           <div className={classNames.controlWrapper}>
-          <h3>BITRIA Accounts
-
-</h3>
+          <h3 className={classNames.controlHeader}>BITRIA Accounts</h3>
              <ListView
               items={items}
               viewFields={viewFields}

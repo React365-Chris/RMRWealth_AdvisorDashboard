@@ -32,71 +32,68 @@ import {
     }
 });
 
-
 const viewFields: IViewField[] = [
     {
       name: "FileLeafRef",
       displayName: "Name",
       isResizable: true,
       sorting: true,
-      minWidth: 150,
+      minWidth: 250,
       maxWidth: 350,
-    },
-    {
-        name: "AnnuityType",
-        displayName: "Type?",
-        isResizable: true,
-        sorting: true,
-        minWidth: 150,
-        maxWidth: 350,
-    },
-    {
-        name: "Annuity_x0020_Type",
-        displayName: "Annuity Type",
-        isResizable: true,
-        sorting: true,
-        minWidth: 100,
-        maxWidth: 250,
     },
     {
         name: "AccountNumber",
         displayName: "Account Number",
         isResizable: true,
         sorting: true,
-        minWidth: 125,
-        maxWidth: 250,
+        minWidth: 200,
+        maxWidth: 350,
     },
     {
-        name: "Client_x0020_Age_x0020__x0028_Oldest_x0029_",
-        displayName: "Client Age (Oldest)",
+        name: "DateSigned",
+        displayName: "Date Signed",
         isResizable: true,
         sorting: true,
-        minWidth: 125,
-        maxWidth: 250,
+        minWidth: 100,
+        maxWidth: 100,
+        render: (item) => {
+          const d = new Date(item.DateSigned);
+          const noTime =
+            d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
+          return <span>{noTime}</span>;
+        },
     },   
     {
         name: "RegistrationType.Title",
         displayName: "Registration Type",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
-        maxWidth: 250,
+        minWidth: 120,
+        maxWidth: 350,
     },
     {
-        name: "InitialPurchase",
-        displayName: "Initial Purchase",
+        name: "RMRRIA",
+        displayName: "RMR RIA",
         isResizable: true,
         sorting: true,
         minWidth: 100,
-        maxWidth: 250,
+        maxWidth: 350,
     },
     {
-        name: "Replacement",
-        displayName: "Replacement",
+        name: "FeeSetup",
+        displayName: "Fee Setup",
         isResizable: true,
         sorting: true,
         minWidth: 100,
-        maxWidth: 250,
+        maxWidth: 350,
+    },
+    {
+        name: "Custodian.Title",
+        displayName: "Custodian",
+        isResizable: true,
+        sorting: true,
+        minWidth: 100,
+        maxWidth: 350,
     },
     {
         name: "ExpectedInvestmentAmount",
@@ -106,50 +103,30 @@ const viewFields: IViewField[] = [
         minWidth: 120,
         maxWidth: 250,
         render: (item) => {
-          let val = item.ExpectedInvestmentAmount;
-          let amt = 0.00;
-          if(val){
-            let amt = val.toLocaleString("en-US");
-            return <span>${amt}</span>;
-          }else{
-            return <span>$0.00</span>;
-          }
-        },
+            let val = item.ExpectedInvestmentAmount;
+            if(val){
+                let amt = val.toLocaleString("en-US");
+                return <span>${amt}</span>;
+              }else{
+                return <span>$0.00</span>;
+              }
+          },
     },
     {
-        name: "ExpectedCommission",
-        displayName: "Exp Commission",
+        name: "RepID.Title",
+        displayName: "Rep Code",
         isResizable: true,
         sorting: true,
-        minWidth: 120,
-        maxWidth: 250,
-        render: (item) => {
-          let val = item.ExpectedCommission;
-          let amt = 0.00;
-          if(val){
-            let amt = val.toLocaleString("en-US");
-            return <span>${amt}</span>;
-          }else{
-            return <span>$0.00</span>;
-          }
-          
-        },
-    },
-    {
-        name: "Commission_x0020_Paid",
-        displayName: "Commission Paid",
-        isResizable: true,
-        sorting: true,
-        minWidth: 120,
-        maxWidth: 320,
+        minWidth: 200,
+        maxWidth: 350,
     },
     {
         name: "ItemStatus",
         displayName: "Item Status",
         isResizable: true,
         sorting: true,
-        minWidth: 120,
-        maxWidth: 250,
+        minWidth: 100,
+        maxWidth: 350,
     },
     {
         name: "Repertoire",
@@ -161,11 +138,11 @@ const viewFields: IViewField[] = [
     },
     {
         name: "DSTVisionReporting",
-        displayName: "DST Vision Reporting",
+        displayName: "Black Diamond",
         isResizable: true,
         sorting: true,
-        minWidth: 150,
-        maxWidth: 250,
+        minWidth: 100,
+        maxWidth: 350,
     },
     {
         name: "EnvestnetReporting",
@@ -181,8 +158,8 @@ const viewFields: IViewField[] = [
         isResizable: true,
         sorting: true,
         minWidth: 100,
-        maxWidth: 250,
-    },
+        maxWidth: 350,
+    },   
     {
         name: "Modified",
         displayName: "Modified",
@@ -213,13 +190,13 @@ function _getSelection(item: any[]) {
     window.open(item["0"].ServerRedirectedEmbedUri, '_blank');
   }
 
-function SelectedAnnuities(props:any) {
+function SelectedDirectMutualFunds(props:any) {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
-//$filter=RelationshipId eq '${props.relationshipId}'&
+
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('1963e371-57fe-45a3-81f8-f4d84da5d22a')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,Modified,AnnuityType,Annuity_x0020_Type,Client_x0020_Age_x0020__x0028_Oldest_x0029_,RegistrationType/Title,InitialPurchase,Replacement,ExpectedInvestmentAmount,ExpectedCommission,Commission_x0020_Paid,ItemStatus,Repertoire,EnvestnetReporting,DSTVisionReporting,Processor/Title,AccountNumber&$expand=Editor,RegistrationType,Processor`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('09447524-9a0f-4429-8c29-72a4302c3f23')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,Modified,AccountNumber,RegistrationType/Title,ExpectedInvestmentAmount,RepID/Title,Custodian/Title,ItemStatus,RMRRIA,DateSigned,Repertoire,FeeSetup,EnvestnetReporting,DSTVisionReporting,Processor/Title&$expand=Editor,RegistrationType,Processor,RepID,Custodian`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -235,7 +212,7 @@ function SelectedAnnuities(props:any) {
         ) : (
           <div>
           <div className={classNames.controlWrapper}>
-          <h3 className={classNames.controlHeader}>Annuities</h3>
+          <h3 className={classNames.controlHeader}>Direct Mutual Funds</h3>
              <ListView
               items={items}
               viewFields={viewFields}
@@ -253,4 +230,4 @@ function SelectedAnnuities(props:any) {
       </div>  );
 }
 
-export default SelectedAnnuities;
+export default SelectedDirectMutualFunds;

@@ -15,17 +15,20 @@ import {
     FilePicker,
     IFilePickerResult,
   } from "@pnp/spfx-controls-react/lib/FilePicker";
+
   const classNames = mergeStyleSets({
     controlWrapper: {
       display: 'block',
-      marginBottom: '10px',
-      height: '650px'
+      height: '650px',
     },
     listView: {
-      height: "275px",
+      height: "310px",
     },
     mainStyle: {
       margin: '20px', 
+    },
+    controlHeader: {
+      margin:'0px'
     }
 });
 
@@ -35,16 +38,16 @@ const viewFields: IViewField[] = [
       displayName: "Name",
       isResizable: true,
       sorting: true,
-      minWidth: 200,
+      minWidth: 150,
       maxWidth: 350,
     },
     {
         name: "AccountNumber",
-        displayName: "AccountNumber",
+        displayName: "Account Number",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
-        maxWidth: 350,
+        minWidth: 120,
+        maxWidth: 250,
     },    
     {
       name: "DateSigned",
@@ -65,55 +68,60 @@ const viewFields: IViewField[] = [
         displayName: "Registration Type",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
-        maxWidth: 350,
+        minWidth: 170,
+        maxWidth: 250,
     },
     {
         name: "InitialPurchase",
-        displayName: "InitialPurchase",
+        displayName: "Initial Purchase",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
-        maxWidth: 350,
+        minWidth: 100,
+        maxWidth: 250,
     },
     {
         name: "Product.Title",
         displayName: "Product",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 275,
         maxWidth: 350,
     },
     {
         name: "ExpectedInvestmentAmount",
-        displayName: "Expected Investment Amount",
+        displayName: "Exp Inv Amt",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
-        maxWidth: 350,
+        minWidth: 100,
+        maxWidth: 250,
+        render: (item) => {
+          let val = item.ExpectedInvestmentAmount;
+          let amt = val.toLocaleString("en-US");
+          return <span>${amt}</span>;
+        },
     },
     {
         name: "TradeRepID.Title",
-        displayName: "",
+        displayName: "TradeRepID",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
-        maxWidth: 350,
+        minWidth: 100,
+        maxWidth: 250,
     },
     {
         name: "Advisor.Title",
         displayName: "Advisor",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 150,
         maxWidth: 350,
     },
     {
         name: "ItemStatus",
-        displayName: "ItemStatus",
+        displayName: "Item Status",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 100,
         maxWidth: 350,
     },
     {
@@ -121,15 +129,15 @@ const viewFields: IViewField[] = [
         displayName: "Repertoire",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 100,
         maxWidth: 350,
     },
     {
         name: "DSTVisionReporting",
-        displayName: "DSTVisionReporting",
+        displayName: "DST Vision Reporting",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 150,
         maxWidth: 350,
     },
     {
@@ -137,32 +145,24 @@ const viewFields: IViewField[] = [
         displayName: "BD Reporting",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
-        maxWidth: 350,
+        minWidth: 100,
+        maxWidth: 250,
     },
     {
         name: "Commission_x0020_Paid",
         displayName: "Commission Paid",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
-        maxWidth: 350,
+        minWidth: 150,
+        maxWidth: 250,
     },
     {
         name: "Processor.Title",
         displayName: "Processor",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
-        maxWidth: 350,
-    },
-    {
-        name: "",
-        displayName: "",
-        isResizable: true,
-        sorting: true,
-        minWidth: 200,
-        maxWidth: 350,
+        minWidth: 100,
+        maxWidth: 200,
     },
     {
         name: "Modified",
@@ -198,9 +198,9 @@ function SelectedAlternativeInvestments(props:any) {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
-
+//&$filter=RelationshipId eq '${props.relationshipId}'
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('b7b1d0f2-d329-4868-a6e0-02d08e6e7f8a')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,AccountNumber,Modified,DateSigned,RregistrationType/Title,InitialPurchase,Product/Title,ExpectedInvestmentAmount,TradeRepID/Title,Advisor/Title,ItemStatus,Repertoire,DSTVisionReporting,EnvestnetReporting,Commission_x0020_Paid,Processor/Title&$expand=Editor,RregistrationType,TradeRepID,Advisor,Processor,Product`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('b7b1d0f2-d329-4868-a6e0-02d08e6e7f8a')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,AccountNumber,Modified,DateSigned,RregistrationType/Title,InitialPurchase,Product/Title,ExpectedInvestmentAmount,TradeRepID/Title,Advisor/Title,ItemStatus,Repertoire,DSTVisionReporting,EnvestnetReporting,Commission_x0020_Paid,Processor/Title&$expand=Editor,RregistrationType,TradeRepID,Advisor,Processor,Product&$orderby=DateSigned desc`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -216,7 +216,7 @@ function SelectedAlternativeInvestments(props:any) {
         ) : (
           <div>
           <div className={classNames.controlWrapper}>
-          <h3>Alternative Investments</h3>
+          <h3 className={classNames.controlHeader}>Alternative Investments</h3>         
              <ListView
               items={items}
               viewFields={viewFields}
