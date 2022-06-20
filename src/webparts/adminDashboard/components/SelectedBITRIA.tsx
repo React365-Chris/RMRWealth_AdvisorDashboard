@@ -93,12 +93,6 @@ const viewFields: IViewField[] = [
     }
   ];
   
-const groupByFields: IGrouping[] = [
-    {
-      name: "ReadyforReview",
-      order: GroupOrder.descending,
-    },
-];
 
 function _getSelection(item: any[]) {
     console.log('Selected items:', item["0"].ServerRedirectedEmbedUri);
@@ -109,9 +103,9 @@ function SelectedBITRIA(props:any) {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
-
+//
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('9307008e-cae8-4306-a949-6d9568f2b2db')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,AccountNumber,DocType/Title,ItemStatus,Processor/Title,Modified,Editor/Title&$filter=RelationshipId eq '${props.relationshipId}'&$expand=Editor,Processor,DocType`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('9307008e-cae8-4306-a949-6d9568f2b2db')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,AccountNumber,DocType/Title,ItemStatus,Processor/Title,Modified,Editor/Title&$expand=Editor,Processor,DocType&$filter=RelationshipId eq '${props.relationshipId}'`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -138,7 +132,6 @@ function SelectedBITRIA(props:any) {
               dragDropFiles={false}
               stickyHeader={true}
               className={classNames.listView}
-              groupByFields={groupByFields}
             />
           </div>
           </div>

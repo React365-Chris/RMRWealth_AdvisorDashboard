@@ -15,8 +15,8 @@ import {
   FilePicker,
   IFilePickerResult,
 } from "@pnp/spfx-controls-react/lib/FilePicker";
-import { getSP } from "../pnpjsConfig";
-import { SPFI, spfi } from "@pnp/sp";
+//import { getSP } from "../pnpjsConfig";
+//import { SPFI, spfi } from "@pnp/sp";
 import "@pnp/sp/webs";
 import "@pnp/sp/files";
 import "@pnp/sp/folders";
@@ -182,7 +182,6 @@ function SelectedCheckLog(props: any) {
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState(null);
   const [filePickerResult, setfilePickerResult] = useState(null);
-  const sp = getSP();
 
   useEffect(() => {
     SharePointService.getRelationshipCheckLogs(props.relationshipId).then(
@@ -198,11 +197,11 @@ function SelectedCheckLog(props: any) {
     const fileNamePath = encodeURI(filePickerResult.fileAbsoluteUrl);
     let result: IFileAddResult;
     console.log("Uploading File", filePickerResult);
-    result = await sp.web
+/*     result = await sp.web
       .getFolderByServerRelativePath("Shared Documents")
       .files.addUsingPath(fileNamePath, filePickerResult.file, {
         Overwrite: true,
-      });
+      }); */
     console.log(`Result of file upload: ${JSON.stringify(result)}`);
   }
 

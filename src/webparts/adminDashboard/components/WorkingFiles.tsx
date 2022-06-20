@@ -60,7 +60,7 @@ function WorkingFiles(props: any) {
       //${props.ServerRelativeUrl}
       SharePointService._postWorkignFiles(url,spOpts).then((resp) => {
         console.log('resp',resp);
-        
+        debugger;
         SharePointService._getWorkignFilesTemp(
           props.ServerRelativeUrl
         ).then((resp) => {

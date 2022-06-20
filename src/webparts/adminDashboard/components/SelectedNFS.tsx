@@ -46,20 +46,6 @@ const viewFields: IViewField[] = [
       maxWidth: 150,
     },
     {
-      name: "DateUploaded",
-      displayName: "Date Uploaded",
-      isResizable: true,
-      sorting: true,
-      minWidth: 120,
-      maxWidth: 150,
-      render: (item) => {
-        const d = new Date(item.DateUploaded);
-        const noTime =
-          d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
-        return <span>{noTime}</span>;
-      },
-    },
-    {
       name: "DocType.Title",
       displayName: "DocType",
       isResizable: true,
@@ -123,9 +109,9 @@ function SelectedNFS(props:any) {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
-
+//&$filter=RelationshipId eq '${props.relationshipId}'
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('7f48b34c-a7fa-4d1a-8192-62c706001d3f')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,AccountNumber,DocType/Title,ItemStatus,Processor/Title,Modified,Editor/Title&$filter=RelationshipId eq '${props.relationshipId}'&$expand=Editor,Processor,DocType`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('7f48b34c-a7fa-4d1a-8192-62c706001d3f')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,AccountNumber,DocType/Title,ItemStatus,Processor/Title,Modified,Editor/Title&$expand=Editor,Processor,DocType&$filter=RelationshipId eq '${props.relationshipId}'`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -152,7 +138,6 @@ function SelectedNFS(props:any) {
               dragDropFiles={false}
               stickyHeader={true}
               className={classNames.listView}
-              groupByFields={groupByFields}
             />
           </div>
           </div>

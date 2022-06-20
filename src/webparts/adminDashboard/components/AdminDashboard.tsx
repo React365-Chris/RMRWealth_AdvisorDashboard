@@ -11,6 +11,7 @@ import CheckLog from '../components/CheckLog';
 import CorrespondenceLog from "../components/CorrespondenceLog";
 import SignatureGuarantees from "../components/SignatureGuarantees";
 import Complaints from "./Complaints";
+import SelectedInvPanel from "./panels/SelectedAlternativeInvPanel";
 
 export default class AdminDashboard extends React.Component<
   IAdminDashboardProps,
@@ -62,8 +63,7 @@ export default class AdminDashboard extends React.Component<
               <Route path="/complaintlog">
                 <Complaints context={this.props.context} />
               </Route>
-
-
+              
             </div>            
           </div>
         </Router>

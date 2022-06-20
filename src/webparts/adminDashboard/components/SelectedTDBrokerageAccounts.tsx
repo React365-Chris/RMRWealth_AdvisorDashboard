@@ -32,148 +32,73 @@ import {
     }
 });
 
-
 const viewFields: IViewField[] = [
     {
       name: "FileLeafRef",
       displayName: "Name",
       isResizable: true,
       sorting: true,
-      minWidth: 150,
+      minWidth: 250,
       maxWidth: 350,
-    },
-    {
-        name: "AnnuityType",
-        displayName: "Type?",
-        isResizable: true,
-        sorting: true,
-        minWidth: 150,
-        maxWidth: 350,
-    },
-    {
-        name: "Annuity_x0020_Type",
-        displayName: "Annuity Type",
-        isResizable: true,
-        sorting: true,
-        minWidth: 100,
-        maxWidth: 250,
     },
     {
         name: "AccountNumber",
         displayName: "Account Number",
         isResizable: true,
         sorting: true,
-        minWidth: 125,
-        maxWidth: 250,
+        minWidth: 150,
+        maxWidth: 350,
     },
     {
-        name: "Client_x0020_Age_x0020__x0028_Oldest_x0029_",
-        displayName: "Client Age (Oldest)",
+        name: "DateOpened",
+        displayName: "Date Opened",
         isResizable: true,
         sorting: true,
-        minWidth: 125,
-        maxWidth: 250,
-    },   
+        minWidth: 100,
+        maxWidth: 100,
+        render: (item) => {
+          const d = new Date(item.DateOpened);
+          if(d){
+          const noTime =
+            d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
+          return <span>{noTime}</span>;
+          }else{
+            return <span></span>; 
+          }
+        },
+    },
     {
         name: "RegistrationType.Title",
         displayName: "Registration Type",
         isResizable: true,
         sorting: true,
+        minWidth: 120,
+        maxWidth: 350,
+    },
+    {
+        name: "InvestmentAmount",
+        displayName: "Inv. Amount",
+        isResizable: true,
+        sorting: true,
+        minWidth: 120,
+        maxWidth: 250,
+        render: (item) => {
+            let val = item.InvestmentAmount;
+            if(val){
+                let amt = val.toLocaleString("en-US");
+                return <span>${amt}</span>;
+              }else{
+                return <span>$0.00</span>;
+              }
+          },
+    },
+    {
+        name: "RepID.Title",
+        displayName: "Rep Code",
+        isResizable: true,
+        sorting: true,
         minWidth: 200,
-        maxWidth: 250,
-    },
-    {
-        name: "InitialPurchase",
-        displayName: "Initial Purchase",
-        isResizable: true,
-        sorting: true,
-        minWidth: 100,
-        maxWidth: 250,
-    },
-    {
-        name: "Replacement",
-        displayName: "Replacement",
-        isResizable: true,
-        sorting: true,
-        minWidth: 100,
-        maxWidth: 250,
-    },
-    {
-        name: "ExpectedInvestmentAmount",
-        displayName: "Exp Inv Amount",
-        isResizable: true,
-        sorting: true,
-        minWidth: 120,
-        maxWidth: 250,
-        render: (item) => {
-          let val = item.ExpectedInvestmentAmount;
-          let amt = 0.00;
-          if(val){
-            let amt = val.toLocaleString("en-US");
-            return <span>${amt}</span>;
-          }else{
-            return <span>$0.00</span>;
-          }
-        },
-    },
-    {
-        name: "ExpectedCommission",
-        displayName: "Exp Commission",
-        isResizable: true,
-        sorting: true,
-        minWidth: 120,
-        maxWidth: 250,
-        render: (item) => {
-          let val = item.ExpectedCommission;
-          let amt = 0.00;
-          if(val){
-            let amt = val.toLocaleString("en-US");
-            return <span>${amt}</span>;
-          }else{
-            return <span>$0.00</span>;
-          }
-          
-        },
-    },
-    {
-        name: "Commission_x0020_Paid",
-        displayName: "Commission Paid",
-        isResizable: true,
-        sorting: true,
-        minWidth: 120,
-        maxWidth: 320,
-    },
-    {
-        name: "ItemStatus",
-        displayName: "Item Status",
-        isResizable: true,
-        sorting: true,
-        minWidth: 120,
-        maxWidth: 250,
-    },
-    {
-        name: "Repertoire",
-        displayName: "Repertoire",
-        isResizable: true,
-        sorting: true,
-        minWidth: 100,
-        maxWidth: 250,
-    },
-    {
-        name: "DSTVisionReporting",
-        displayName: "DST Vision Reporting",
-        isResizable: true,
-        sorting: true,
-        minWidth: 150,
-        maxWidth: 250,
-    },
-    {
-        name: "EnvestnetReporting",
-        displayName: "BD Reporting",
-        isResizable: true,
-        sorting: true,
-        minWidth: 150,
-        maxWidth: 250,
+        maxWidth: 350,
     },
     {
         name: "Processor.Title",
@@ -181,7 +106,47 @@ const viewFields: IViewField[] = [
         isResizable: true,
         sorting: true,
         minWidth: 100,
-        maxWidth: 250,
+        maxWidth: 350,
+    },
+    {
+        name: "ItemStatus",
+        displayName: "Item Status",
+        isResizable: true,
+        sorting: true,
+        minWidth: 100,
+        maxWidth: 350,
+    },
+    {
+        name: "Repertoire",
+        displayName: "Repertoire",
+        isResizable: true,
+        sorting: true,
+        minWidth: 100,
+        maxWidth: 350,
+    },
+    {
+        name: "EnvestnetHouseholding",
+        displayName: "BD Householding",
+        isResizable: true,
+        sorting: true,
+        minWidth: 100,
+        maxWidth: 350,
+    },
+    {
+        name: "RMRRIA",
+        displayName: "RMR RIA",
+        isResizable: true,
+        sorting: true,
+        minWidth: 100,
+        maxWidth: 350,
+    },
+    {
+        name: "FeeSetup",
+        displayName: "Fee Setup",
+        isResizable: true,
+        sorting: true,
+        minWidth: 100,
+        maxWidth: 350,
     },
     {
         name: "Modified",
@@ -204,7 +169,7 @@ const viewFields: IViewField[] = [
       sorting: true,
       minWidth: 130,
       maxWidth: 170,
-    }
+    },      
   ];  
 
 
@@ -213,13 +178,13 @@ function _getSelection(item: any[]) {
     window.open(item["0"].ServerRedirectedEmbedUri, '_blank');
   }
 
-function SelectedAnnuities(props:any) {
+function SelectedTDBrokerageAccounts(props:any) {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
-//&
+
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('1963e371-57fe-45a3-81f8-f4d84da5d22a')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,Modified,AnnuityType,Annuity_x0020_Type,Client_x0020_Age_x0020__x0028_Oldest_x0029_,RegistrationType/Title,InitialPurchase,Replacement,ExpectedInvestmentAmount,ExpectedCommission,Commission_x0020_Paid,ItemStatus,Repertoire,EnvestnetReporting,DSTVisionReporting,Processor/Title,AccountNumber&$expand=Editor,RegistrationType,Processor&$filter=RelationshipId eq '${props.relationshipId}'`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('ba091fbd-6d08-436c-b5c5-a17c528dda76')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,Modified,RepID/Title,RMRRIA,DateOpened,InvestmentAmount,ItemStatus,FeeSetup,EnvestnetHouseholding,Repertoire,AccountNumber,Processor/Title,RegistrationType/Title&$expand=Editor,RepID,Processor,RegistrationType&$filter=RelationshipId eq '${props.relationshipId}'`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -235,7 +200,7 @@ function SelectedAnnuities(props:any) {
         ) : (
           <div>
           <div className={classNames.controlWrapper}>
-          <h3 className={classNames.controlHeader}>Annuities</h3>
+          <h3 className={classNames.controlHeader}>TD Brokerage Accounts</h3>
              <ListView
               items={items}
               viewFields={viewFields}
@@ -253,4 +218,6 @@ function SelectedAnnuities(props:any) {
       </div>  );
 }
 
-export default SelectedAnnuities;
+export default SelectedTDBrokerageAccounts
+
+;

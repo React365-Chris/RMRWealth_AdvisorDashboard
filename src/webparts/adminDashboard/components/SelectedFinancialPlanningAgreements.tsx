@@ -43,7 +43,7 @@ const viewFields: IViewField[] = [
       displayName: "Services",
       isResizable: true,
       sorting: true,
-      minWidth: 100,
+      minWidth: 200,
       maxWidth: 150,
     },
     {
@@ -51,7 +51,7 @@ const viewFields: IViewField[] = [
       displayName: "Advisor (Executing)",
       isResizable: true,
       sorting: true,
-      minWidth: 100,
+      minWidth: 130,
       maxWidth: 150,
     },
     {
@@ -59,7 +59,7 @@ const viewFields: IViewField[] = [
         displayName: "Executed Date (client)",
         isResizable: true,
         sorting: true,
-        minWidth: 100,
+        minWidth: 150,
         maxWidth: 100,
         render: (item) => {
           const d = new Date(item.Executed_x0020_Date_x0020__x0028_client_x0029_);
@@ -73,13 +73,17 @@ const viewFields: IViewField[] = [
         displayName: "Disclosures Delivery Date",
         isResizable: true,
         sorting: true,
-        minWidth: 100,
+        minWidth: 150,
         maxWidth: 100,
         render: (item) => {
           const d = new Date(item.Disclosures_x0020_Delivery_x0020_Date);
+          if(d){
           const noTime =
             d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
           return <span>{noTime}</span>;
+          }else{
+            return <span></span>;
+          }
         },
     },
     {
@@ -87,7 +91,7 @@ const viewFields: IViewField[] = [
       displayName: "Disclosure Delivery Type",
       isResizable: true,
       sorting: true,
-      minWidth: 100,
+      minWidth: 120,
       maxWidth: 150,
     },
     {
@@ -97,14 +101,36 @@ const viewFields: IViewField[] = [
       sorting: true,
       minWidth: 100,
       maxWidth: 150,
+      render: (item) => {
+        let val = item.Estimated_x0020_Fees;
+        let amt = 0.00;
+        if(val){
+          let amt = val.toLocaleString("en-US");
+          return <span>${amt}</span>;
+        }else{
+          return <span>$0.00</span>;
+        }
+        
+      },
     },
     {
       name: "Additional_x0020_Hourly_x0020_Rate",
       displayName: "Additional Hourly Rate",
       isResizable: true,
       sorting: true,
-      minWidth: 100,
+      minWidth: 150,
       maxWidth: 150,
+      render: (item) => {
+        let val = item.Additional_x0020_Hourly_x0020_Rate;
+        let amt = 0.00;
+        if(val){
+          let amt = val.toLocaleString("en-US");
+          return <span>${amt}</span>;
+        }else{
+          return <span>$0.00</span>;
+        }
+        
+      },
     },
     {
       name: "Status",
@@ -154,13 +180,6 @@ const viewFields: IViewField[] = [
     }
   ];
   
-const groupByFields: IGrouping[] = [
-    {
-      name: "ReadyforReview",
-      order: GroupOrder.descending,
-    },
-];
-
 function _getSelection(item: any[]) {
     console.log('Selected items:', item["0"].ServerRedirectedEmbedUri);
     window.open(item["0"].ServerRedirectedEmbedUri, '_blank');
@@ -171,8 +190,9 @@ function SelectedFinancialPlanningAgreements(props:any) {
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
 
+    //&$filter=RelationshipId eq '${props.relationshipId}'
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('550be7f9-2743-44fd-bde2-d95c747a5695')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Services,Advisor_x0020__x0028_Executing_x0029_/Title,Executed_x0020_Date_x0020__x0028_client_x0029_,Processor/Title,Modified,Editor/Title,Disclosures_x0020_Delivery_x0020_Date,Disclosure_x0020_Delivery_x0020_Type,Estimated_x0020_Fees,Additional_x0020_Hourly_x0020_Rate,Status,ReadyforReview&$filter=RelationshipId eq '${props.relationshipId}'&$expand=Editor,Processor,Advisor_x0020__x0028_Executing_x0029_`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('550be7f9-2743-44fd-bde2-d95c747a5695')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Services,Advisor_x0020__x0028_Executing_x0029_/Title,Executed_x0020_Date_x0020__x0028_client_x0029_,Processor/Title,Modified,Editor/Title,Disclosures_x0020_Delivery_x0020_Date,Disclosure_x0020_Delivery_x0020_Type,Estimated_x0020_Fees,Additional_x0020_Hourly_x0020_Rate,Status,ReadyforReview&$expand=Editor,Processor,Advisor_x0020__x0028_Executing_x0029_&$filter=RelationshipId eq '${props.relationshipId}'`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -188,7 +208,7 @@ function SelectedFinancialPlanningAgreements(props:any) {
         ) : (
           <div>
           <div className={classNames.controlWrapper}>
-          <h3>Financial Agreements</h3>
+          <h3>PF - Financial Agreements</h3>
              <ListView
               items={items}
               viewFields={viewFields}
@@ -199,7 +219,6 @@ function SelectedFinancialPlanningAgreements(props:any) {
               dragDropFiles={false}
               stickyHeader={true}
               className={classNames.listView}
-              groupByFields={groupByFields}
             />
           </div>
           </div>

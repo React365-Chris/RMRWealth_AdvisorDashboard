@@ -12,7 +12,7 @@ import * as strings from 'AdminDashboardWebPartStrings';
 import AdminDashboard from './components/AdminDashboard';
 import { IAdminDashboardProps } from './components/IAdminDashboardProps';
 import SharePointService from '../../Services/SharePointService';
-import { getSP } from './pnpjsConfig';
+import { sp } from "@pnp/sp/presets/all";
 
 export interface IAdminDashboardWebPartProps {
   description: string;
@@ -25,9 +25,12 @@ export default class AdminDashboardWebPart extends BaseClientSideWebPart<IAdminD
 
   protected async onInit(): Promise<void> {
     //this._environmentMessage = this._getEnvironmentMessage();
+    sp.setup({
+      spfxContext: this.context
+    });
     super.onInit();
     SharePointService.setup(this.context);
-    getSP(this.context);
+
   }
 
   public render(): void {

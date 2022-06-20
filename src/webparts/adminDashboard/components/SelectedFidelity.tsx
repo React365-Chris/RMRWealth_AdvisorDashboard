@@ -34,7 +34,7 @@ const viewFields: IViewField[] = [
       displayName: "Name",
       isResizable: true,
       sorting: true,
-      minWidth: 200,
+      minWidth: 250,
       maxWidth: 350,
     },
     {
@@ -50,7 +50,7 @@ const viewFields: IViewField[] = [
       displayName: "DocType",
       isResizable: true,
       sorting: true,
-      minWidth: 100,
+      minWidth: 170,
       maxWidth: 150,
     },
     {
@@ -62,7 +62,7 @@ const viewFields: IViewField[] = [
       maxWidth: 150,
     },
     {
-      name: "Processor.Title",
+      name: "Processor0.Title",
       displayName: "Processor",
       isResizable: true,
       sorting: true,
@@ -93,12 +93,6 @@ const viewFields: IViewField[] = [
     }
   ];
   
-const groupByFields: IGrouping[] = [
-    {
-      name: "ReadyforReview",
-      order: GroupOrder.descending,
-    },
-];
 
 function _getSelection(item: any[]) {
     console.log('Selected items:', item["0"].ServerRedirectedEmbedUri);
@@ -109,9 +103,9 @@ function SelectedFidelity(props:any) {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
-
+//
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('9ebf4fd2-4c22-4e70-9fa6-9744c2304231')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,AccountNumber0,DocType/Title,ItemStatus0,Processor0/Title,Modified,Editor/Title&$filter=RelationshipId eq '${props.relationshipId}'&$expand=Editor,Processor0,DocType`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('9ebf4fd2-4c22-4e70-9fa6-9744c2304231')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,AccountNumber0,DocType/Title,ItemStatus0,Processor0/Title,Modified,Editor/Title&$expand=Editor,Processor0,DocType&$filter=RelationshipId eq '${props.relationshipId}'`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -138,7 +132,6 @@ function SelectedFidelity(props:any) {
               dragDropFiles={false}
               stickyHeader={true}
               className={classNames.listView}
-              groupByFields={groupByFields}
             />
           </div>
           </div>

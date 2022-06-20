@@ -11,8 +11,8 @@ import {
 import { IListCollection } from "./IList";
 import { IListItemCollection } from "./IListItem";
 import { IListFieldCollection } from "./IListField";
-
-
+import { sp } from "@pnp/sp/presets/all";
+import { Web } from "@pnp/sp/webs";
 const CHECKLOG_LOGICAPP_ENDPOINT: string = 'https://prod-36.eastus2.logic.azure.com:443/workflows/9e13936109ce44d3954bfc8f99ce4285/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=nfU7_6w3_ROZaYBQW7q_BY_KvUQ-PCsc-zkkGt2Rz-4&Email=';
 
 const RELATIONSHIP_LOGICAPP_ENDPOINT: string = 'https://prod-26.eastus2.logic.azure.com:443/workflows/245bf03801f044028cd9689953c43f53/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=giOc0B3CBpiGJrV05Zj0ZVMr5jhxwfECoeYzikUbmBc&Email=';
@@ -39,6 +39,7 @@ export class SharePointServiceManager {
         this.context = context;
     }  
 
+   
     public getRepCodesLogicApp():Promise<any>{
         return this.context.httpClient.get(`${REPCODE_LOGICAPP_ENDPOINT+this.context.pageContext.user.email}`, HttpClient.configurations.v1).then(response => {
             if(!response.ok) return Promise.reject('Get Request Failed');
@@ -93,7 +94,7 @@ export class SharePointServiceManager {
     }
     
     public post(relativeEndPointUrl: string, spOpts:any): Promise<any>{
-        //console.log('posting................',relativeEndPointUrl,spOpts);
+        console.log('posting................',relativeEndPointUrl,spOpts);
         return this.context.spHttpClient.post(`${relativeEndPointUrl}`, SPHttpClient.configurations.v1,spOpts).then(response => {
             if(!response.ok) return Promise.reject('post Request Failed');
             return response.json();

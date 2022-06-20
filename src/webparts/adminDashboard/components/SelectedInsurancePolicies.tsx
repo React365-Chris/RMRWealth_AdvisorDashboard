@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -14,17 +15,20 @@ import {
     FilePicker,
     IFilePickerResult,
   } from "@pnp/spfx-controls-react/lib/FilePicker";
+
   const classNames = mergeStyleSets({
     controlWrapper: {
       display: 'block',
-      marginBottom: '10px',
-      height: '650px'
+      height: '650px',
     },
     listView: {
-      height: "275px",
+      height: "310px",
     },
     mainStyle: {
       margin: '20px', 
+    },
+    controlHeader: {
+      margin:'0px'
     }
 });
 
@@ -34,55 +38,64 @@ const viewFields: IViewField[] = [
       displayName: "Name",
       isResizable: true,
       sorting: true,
-      minWidth: 200,
+      minWidth: 250,
       maxWidth: 350,
+    },   
+    {
+        name: "PolicyType.Title",
+        displayName: "PolicyType Type",
+        isResizable: true,
+        sorting: true,
+        minWidth: 120,
+        maxWidth: 350,
     },
     {
-      name: "AccountNumber",
-      displayName: "Account Number",
-      isResizable: true,
-      sorting: true,
-      minWidth: 100,
-      maxWidth: 150,
-    },
-    
-    {
-      name: "DocType.Title",
-      displayName: "DocType",
-      isResizable: true,
-      sorting: true,
-      minWidth: 100,
-      maxWidth: 150,
-    },
-    {
-      name: "ItemStatus",
-      displayName: "Item Status",
-      isResizable: true,
-      sorting: true,
-      minWidth: 100,
-      maxWidth: 150,
+        name: "EffectiveDate",
+        displayName: "Effective Date",
+        isResizable: true,
+        sorting: true,
+        minWidth: 100,
+        maxWidth: 100,
+        render: (item) => {
+          const d = new Date(item.EffectiveDate);
+          if(d){
+          const noTime =
+            d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
+          return <span>{noTime}</span>;
+          }else{
+            return <span></span>; 
+          }
+        },
     },
     {
-      name: "Processor.Title",
-      displayName: "Processor",
-      isResizable: true,
-      sorting: true,
-      minWidth: 100,
-      maxWidth: 150,
+        name: "Insurer.Title",
+        displayName: "Insurer",
+        isResizable: true,
+        sorting: true,
+        minWidth: 120,
+        maxWidth: 350,
     },
     {
-      name: "Modified",
-      displayName: "Modified",
-      isResizable: true,
-      sorting: true,
-      minWidth: 100,
-      maxWidth: 100,
-      render: (item) => {
-        const d = new Date(item.Modified);
-        const noTime =
-          d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
-        return <span>{noTime}</span>;
-      },
+        name: "PolicyNumber",
+        displayName: "Policy Number",
+        isResizable: true,
+        sorting: true,
+        minWidth: 200,
+        maxWidth: 350,
+    },
+    {
+        name: "Modified",
+        displayName: "Modified",
+        isResizable: true,
+        sorting: true,
+        minWidth: 100,
+        maxWidth: 100,
+        render: (item) => {
+          const d = new Date(item.Modified);
+          const noTime =
+            d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
+          return <span>{noTime}</span>;
+        },
     },
     {
       name: "Editor.Title",
@@ -91,28 +104,22 @@ const viewFields: IViewField[] = [
       sorting: true,
       minWidth: 130,
       maxWidth: 170,
-    }
-  ];
-  
-const groupByFields: IGrouping[] = [
-    {
-      name: "ReadyforReview",
-      order: GroupOrder.descending,
-    },
-];
+    }  
+  ];  
+
 
 function _getSelection(item: any[]) {
     console.log('Selected items:', item["0"].ServerRedirectedEmbedUri);
     window.open(item["0"].ServerRedirectedEmbedUri, '_blank');
   }
 
-function SelectedDirect(props:any) {
+function SelectedFidelityBrokerageAccounts(props:any) {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
-//&$filter=RelationshipId eq '${props.relationshipId}'
+
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('224c5b7d-d58f-45f0-a6ea-5c19c68f3914')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,AccountNumber,DocType/Title,ItemStatus,Processor/Title,Modified,Editor/Title&$expand=Editor,Processor,DocType&$filter=RelationshipId eq '${props.relationshipId}'`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('116a3303-a153-4ac9-84a8-a88e199bce30')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,Modified,PolicyNumber,PolicyType/Title,Insurer/Title,PolicyType/Title,EffectiveDate&$expand=Editor,Insurer,PolicyType&$top=10000&$filter=RelationshipId eq '${props.relationshipId}'`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -128,7 +135,7 @@ function SelectedDirect(props:any) {
         ) : (
           <div>
           <div className={classNames.controlWrapper}>
-          <h3>Direct Account Processing</h3>
+          <h3 className={classNames.controlHeader}>Insurance Policies (Individual)</h3>
              <ListView
               items={items}
               viewFields={viewFields}
@@ -146,4 +153,4 @@ function SelectedDirect(props:any) {
       </div>  );
 }
 
-export default SelectedDirect;
+export default SelectedFidelityBrokerageAccounts;

@@ -2,7 +2,7 @@
 
 .gridContainer {
   display: grid;
-  grid-template-columns: minmax(200px, 350px) minmax(500px, auto);
+  grid-template-columns: minmax(150px, 200px) minmax(500px, auto);
   grid-template-rows: minmax(auto, 800px) ;
   grid-gap: 10px;
   /*  background-color: aqua;  */ 

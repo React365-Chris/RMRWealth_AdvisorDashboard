@@ -12,7 +12,6 @@ import AdvisorDashboard from './components/AdvisorDashboard';
 import { IAdvisorDashboardProps } from './components/IAdvisorDashboardProps';
 import SharePointService from '../../Services/SharePointService';
 import { ThemeProvider, ThemeChangedEventArgs,IReadonlyTheme } from '@microsoft/sp-component-base';
-import { getSP } from './pnpjsConfig';
 
 export interface IAdvisorDashboardWebPartProps {
   description: string;
@@ -25,9 +24,7 @@ export default class AdvisorDashboardWebPart extends BaseClientSideWebPart<IAdvi
 
   protected async onInit(): Promise<void> {
 
-    super.onInit();
-    
-    getSP(this.context);
+    super.onInit();   
     
     /* if (!Providers.globalProvider) {
       Providers.globalProvider = new SharePointProvider(this.context);

@@ -74,7 +74,7 @@ function SelectedNonDisclosure(props:any) {
     const [filePickerResult, setfilePickerResult] = useState(null);
 
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('df7a50bc-5668-4ccc-80b2-c3dd29bc624f')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title&$expand=Editor`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('df7a50bc-5668-4ccc-80b2-c3dd29bc624f')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,Modified&$expand=Editor`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);

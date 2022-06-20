@@ -42,11 +42,11 @@ const viewFields: IViewField[] = [
       maxWidth: 350,
     },
     {
-        name: "AccountNumber",
-        displayName: "Account Number",
+        name: "RMRRIA",
+        displayName: "RMR RIA",
         isResizable: true,
         sorting: true,
-        minWidth: 200,
+        minWidth: 100,
         maxWidth: 350,
     },
     {
@@ -58,52 +58,48 @@ const viewFields: IViewField[] = [
         maxWidth: 100,
         render: (item) => {
           const d = new Date(item.DateSigned);
+          if(d){
           const noTime =
             d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
           return <span>{noTime}</span>;
+          }else{
+            return <span></span>;
+          }
         },
     },   
     {
-        name: "RegistrationType.Title",
-        displayName: "Registration Type",
+        name: "ServiceType.Title",
+        displayName: "Service Type",
         isResizable: true,
         sorting: true,
         minWidth: 120,
         maxWidth: 350,
     },
     {
-        name: "RMRRIA",
-        displayName: "RMR RIA",
+        name: "RepID.Title",
+        displayName: "Rep Code",
         isResizable: true,
         sorting: true,
         minWidth: 100,
         maxWidth: 350,
     },
     {
-        name: "FeeSetup",
-        displayName: "Fee Setup",
+        name: "Status",
+        displayName: "Status",
         isResizable: true,
         sorting: true,
-        minWidth: 100,
+        minWidth: 130,
         maxWidth: 350,
     },
     {
-        name: "Custodian.Title",
-        displayName: "Custodian",
-        isResizable: true,
-        sorting: true,
-        minWidth: 100,
-        maxWidth: 350,
-    },
-    {
-        name: "ExpectedInvestmentAmount",
-        displayName: "Exp Inv Amount",
+        name: "ApproximateValue",
+        displayName: "Approx. Value",
         isResizable: true,
         sorting: true,
         minWidth: 120,
         maxWidth: 250,
         render: (item) => {
-            let val = item.ExpectedInvestmentAmount;
+            let val = item.ApproximateValue;
             if(val){
                 let amt = val.toLocaleString("en-US");
                 return <span>${amt}</span>;
@@ -113,53 +109,13 @@ const viewFields: IViewField[] = [
           },
     },
     {
-        name: "RepID.Title",
-        displayName: "Rep Code",
+        name: "Recodkeeper.Title",
+        displayName: "Recodkeeper",
         isResizable: true,
         sorting: true,
         minWidth: 200,
         maxWidth: 350,
     },
-    {
-        name: "ItemStatus",
-        displayName: "Item Status",
-        isResizable: true,
-        sorting: true,
-        minWidth: 100,
-        maxWidth: 350,
-    },
-    {
-        name: "Repertoire",
-        displayName: "Repertoire",
-        isResizable: true,
-        sorting: true,
-        minWidth: 100,
-        maxWidth: 250,
-    },
-    {
-        name: "DSTVisionReporting",
-        displayName: "Black Diamond",
-        isResizable: true,
-        sorting: true,
-        minWidth: 100,
-        maxWidth: 350,
-    },
-    {
-        name: "EnvestnetReporting",
-        displayName: "BD Reporting",
-        isResizable: true,
-        sorting: true,
-        minWidth: 150,
-        maxWidth: 250,
-    },
-    {
-        name: "Processor.Title",
-        displayName: "Processor",
-        isResizable: true,
-        sorting: true,
-        minWidth: 100,
-        maxWidth: 350,
-    },   
     {
         name: "Modified",
         displayName: "Modified",
@@ -181,7 +137,8 @@ const viewFields: IViewField[] = [
       sorting: true,
       minWidth: 130,
       maxWidth: 170,
-    }
+    },
+      
   ];  
 
 
@@ -190,13 +147,13 @@ function _getSelection(item: any[]) {
     window.open(item["0"].ServerRedirectedEmbedUri, '_blank');
   }
 
-function SelectedDirectMutualFunds(props:any) {
+function SelectedRetirementPlanAccounts(props:any) {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
 
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('09447524-9a0f-4429-8c29-72a4302c3f23')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,Modified,AccountNumber,RegistrationType/Title,ExpectedInvestmentAmount,RepID/Title,Custodian/Title,ItemStatus,RMRRIA,DateSigned,Repertoire,FeeSetup,EnvestnetReporting,DSTVisionReporting,Processor/Title&$expand=Editor,RegistrationType,Processor,RepID,Custodian&$filter=RelationshipId eq '${props.relationshipId}'`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('8308d54d-7c39-4397-a23f-af247b987923')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,Modified,RepID/Title,RMRRIA,DateSigned,ApproximateValue,Status,ServiceType/Title,Recodkeeper/Title&$expand=ServiceType,Editor,RepID,Recodkeeper&$top=10000&$filter=RelationshipId eq '${props.relationshipId}'`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -212,7 +169,7 @@ function SelectedDirectMutualFunds(props:any) {
         ) : (
           <div>
           <div className={classNames.controlWrapper}>
-          <h3 className={classNames.controlHeader}>Direct Mutual Funds</h3>
+          <h3 className={classNames.controlHeader}>Retirement Plan Accounts</h3>
              <ListView
               items={items}
               viewFields={viewFields}
@@ -230,4 +187,4 @@ function SelectedDirectMutualFunds(props:any) {
       </div>  );
 }
 
-export default SelectedDirectMutualFunds;
+export default SelectedRetirementPlanAccounts;

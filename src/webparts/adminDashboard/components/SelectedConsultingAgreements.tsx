@@ -119,6 +119,17 @@ const viewFields: IViewField[] = [
     sorting: true,
     minWidth: 100,
     maxWidth: 150,
+    render: (item) => {
+      let val = item.Fees_x0020_for_x0020_Group_x002f_Insured_x0020_Benefits;
+      let amt = 0.00;
+      if(val){
+        let amt = val.toLocaleString("en-US");
+        return <span>${amt}</span>;
+      }else{
+        return <span>$0.00</span>;
+      }
+      
+    },
   },
   {
     name: "Fees_x0020_for_x0020_Pre_x002d_Retirement_x0020_Plan_x0020_Consulting",
@@ -127,6 +138,17 @@ const viewFields: IViewField[] = [
     sorting: true,
     minWidth: 100,
     maxWidth: 150,
+    render: (item) => {
+      let val = item.Fees_x0020_for_x0020_Pre_x002d_Retirement_x0020_Plan_x0020_Consulting;
+      let amt = 0.00;
+      if(val){
+        let amt = val.toLocaleString("en-US");
+        return <span>${amt}</span>;
+      }else{
+        return <span>$0.00</span>;
+      }
+      
+    },
   },
   {
     name: "Fees_x0020_for_x0020_Payroll_x0020__x002f__x0020_Bene_x0020_Admin_x0020_Consulting",
@@ -135,6 +157,17 @@ const viewFields: IViewField[] = [
     sorting: true,
     minWidth: 100,
     maxWidth: 150,
+    render: (item) => {
+      let val = item.Fees_x0020_for_x0020_Payroll_x0020__x002f__x0020_Bene_x0020_Admin_x0020_Consulting;
+      let amt = 0.00;
+      if(val){
+        let amt = val.toLocaleString("en-US");
+        return <span>${amt}</span>;
+      }else{
+        return <span>$0.00</span>;
+      }
+      
+    },
   },
   {
     name: "Fees_x0020_for_x0020_Additional_x0020_Consulting",
@@ -143,6 +176,17 @@ const viewFields: IViewField[] = [
     sorting: true,
     minWidth: 100,
     maxWidth: 150,
+    render: (item) => {
+      let val = item.Fees_x0020_for_x0020_Additional_x0020_Consulting;
+      let amt = 0.00;
+      if(val){
+        let amt = val.toLocaleString("en-US");
+        return <span>${amt}</span>;
+      }else{
+        return <span>$0.00</span>;
+      }
+      
+    },
   },
   {
     name: "Total_x0020_Fees",
@@ -151,6 +195,17 @@ const viewFields: IViewField[] = [
     sorting: true,
     minWidth: 100,
     maxWidth: 150,
+    render: (item) => {
+      let val = item.Total_x0020_Fees;
+      let amt = 0.00;
+      if(val){
+        let amt = val.toLocaleString("en-US");
+        return <span>${amt}</span>;
+      }else{
+        return <span>$0.00</span>;
+      }
+      
+    },
   },
   {
     name: "_Comments",
@@ -194,9 +249,9 @@ function SelectedConsultingAgreements(props:any) {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
-
+//&$filter=RelationshipId eq '${props.relationshipId}'
     useEffect(() => {    
-      SharePointService.getOperations(`/_api/web/lists/GetById('8cc4d5c8-f3c1-4843-bc2f-113aa3025794')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,AdvisorExecuting/Title,Modified,Editor/Title,Status,GroupInsuredBenefitsConsulting,Pre_x002d_Retirement_x0020_Plan_x0020_Consulting,Payroll_x0020__x002f__x0020_Ben_x0020_Admin_x0020_Consulting,Additional_x0020_Consulting,Disclosure_x0020_Delivery_x0020_Date,Fees_x0020_for_x0020_Group_x002f_Insured_x0020_Benefits,Fees_x0020_for_x0020_Pre_x002d_Retirement_x0020_Plan_x0020_Consulting,Executed_x0020_Date_x0020__x0028_client_x0029_&,Fees_x0020_for_x0020_Payroll_x0020__x002f__x0020_Bene_x0020_Admin_x0020_Consulting,Total_x0020_Fees,_Comments,Fees_x0020_for_x0020_Additional_x0020_Consulting$filter=RelationshipId eq '${props.relationshipId}'&$expand=Editor,AdvisorExecuting`).then(
+      SharePointService.getOperations(`/_api/web/lists/GetById('8cc4d5c8-f3c1-4843-bc2f-113aa3025794')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,AdvisorExecuting/Title,Modified,Editor/Title,Status,GroupInsuredBenefitsConsulting,Pre_x002d_Retirement_x0020_Plan_x0020_Consulting,Payroll_x0020__x002f__x0020_Ben_x0020_Admin_x0020_Consulting,Additional_x0020_Consulting,Disclosure_x0020_Delivery_x0020_Date,Fees_x0020_for_x0020_Group_x002f_Insured_x0020_Benefits,Fees_x0020_for_x0020_Pre_x002d_Retirement_x0020_Plan_x0020_Consulting,Executed_x0020_Date_x0020__x0028_client_x0029_&,Fees_x0020_for_x0020_Payroll_x0020__x002f__x0020_Bene_x0020_Admin_x0020_Consulting,Total_x0020_Fees,_Comments,Fees_x0020_for_x0020_Additional_x0020_Consulting&$expand=Editor,AdvisorExecuting&$filter=RelationshipId eq '${props.relationshipId}'`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -212,7 +267,7 @@ function SelectedConsultingAgreements(props:any) {
         ) : (
           <div>
           <div className={classNames.controlWrapper}>
-          <h3>Consulting Agreements</h3>
+          <h3>CS - Consulting Agreements</h3>
              <ListView
               items={items}
               viewFields={viewFields}

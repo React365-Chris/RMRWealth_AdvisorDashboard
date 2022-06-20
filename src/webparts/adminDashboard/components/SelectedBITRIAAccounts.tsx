@@ -172,7 +172,7 @@ function SelectedBITRIAAccounts(props:any) {
     const [filePickerResult, setfilePickerResult] = useState(null);
 
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('aaaf6904-f0d1-41dd-bcce-b32dcefc80f9')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,Modified,AccountNumber,MemoReferenceCode,DateOpened,RegistrationType/Title,InvestmentAmount,RepID/Title,ItemStatus,RMRRIA,DSTVisionReporting,Processor/Title&$expand=Editor,RegistrationType,Processor,RepID`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('aaaf6904-f0d1-41dd-bcce-b32dcefc80f9')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Editor/Title,Modified,AccountNumber,MemoReferenceCode,DateOpened,RegistrationType/Title,InvestmentAmount,RepID/Title,ItemStatus,RMRRIA,DSTVisionReporting,Processor/Title&$expand=Editor,RegistrationType,Processor,RepID&$filter=RelationshipId eq '${props.relationshipId}'`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);

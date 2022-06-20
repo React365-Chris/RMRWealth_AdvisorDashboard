@@ -41,6 +41,12 @@ import SelectedAlternativeInvestments from "./SelectedAlternativeInvestments";
 import SelectedAnnuities from "./SelectedAnnuities";
 import SelectedBITRIAAccounts from "./SelectedBITRIAAccounts";
 import SelectedDirectMutualFunds from "./SelectedDirectMutualFunds";
+import SelectedFidelityBrokerageAccounts from "./SelectedFidelityBrokerageAccounts";
+import SelectedInsurancePolicies from "./SelectedInsurancePolicies";
+import SelectedNFSBrokerageAccounts from "./NFSBrokerageAccounts";
+import SelectedRetirementPlanAccounts from "./SelectedRetirementPlanAccounts";
+import SelectedTDBrokerageAccounts from "./SelectedTDBrokerageAccounts";
+import SelectedNFS from "./SelectedNFS";
 
 const labelStyles: Partial<IStyleSet<ILabelStyles>> = {
   root: { marginTop: 10 },
@@ -180,8 +186,7 @@ function Relationships(props: any) {
             />
             <div>
               <Panel
-                headerText="Relationship "
-                {...selectedRelationship}
+                headerText={selectedRelationship}
                 isOpen={isOpen}
                 onDismiss={dismissPanel}
                 // You MUST provide this prop! Otherwise screen readers will just say "button" with no label.
@@ -199,7 +204,8 @@ function Relationships(props: any) {
                     <div className={classNames.controlList}>
                       <SelectedAlternativeInvestments
                        relationshipId={selectedRelationshipId}
-                       context={props.context} 
+                       context={props.context}
+                       relationship={selectedRelationship} 
                       />
                     </div>
                     <div className={classNames.controlList}>
@@ -220,19 +226,33 @@ function Relationships(props: any) {
                        />
                     </div>
                     <div className={classNames.controlList}>
-                      
+                      <SelectedFidelityBrokerageAccounts 
+                      relationshipId={selectedRelationshipId}
+                      context={props.context}
+                      />
                     </div>
                     <div className={classNames.controlList}>
-                      
+                      <SelectedInsurancePolicies 
+                      relationshipId={selectedRelationshipId}
+                      context={props.context}
+                      />
                     </div>
                     <div className={classNames.controlList}>
-                      
+                      <SelectedNFSBrokerageAccounts 
+                      relationshipId={selectedRelationshipId}
+                      context={props.context}
+                      />
                     </div>
                     <div className={classNames.controlList}>
-                      
+                      <SelectedRetirementPlanAccounts 
+                      relationshipId={selectedRelationshipId}
+                      context={props.context}
+                      />
                     </div>
                     <div className={classNames.controlList}>
-                      
+                      <SelectedTDBrokerageAccounts 
+                      relationshipId={selectedRelationshipId}
+                      context={props.context} />
                     </div>
                   </PivotItem>
                   <PivotItem headerText="Account Processing">
@@ -250,6 +270,11 @@ function Relationships(props: any) {
                     </div>
                     <div className={classNames.controlList}>
                       <SelectedTD 
+                      relationshipId={selectedRelationshipId}
+                      context={props.context}/>
+                    </div>
+                    <div className={classNames.controlList}>
+                      <SelectedNFS
                       relationshipId={selectedRelationshipId}
                       context={props.context}/>
                     </div>

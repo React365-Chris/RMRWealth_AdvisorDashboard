@@ -109,12 +109,6 @@ const viewFields: IViewField[] = [
   }
 ];
   
-const groupByFields: IGrouping[] = [
-    {
-      name: "ReadyforReview",
-      order: GroupOrder.descending,
-    },
-];
 
 function _getSelection(item: any[]) {
     console.log('Selected items:', item["0"].ServerRedirectedEmbedUri);
@@ -125,9 +119,9 @@ function SelectedServiceAgreements(props:any) {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const [filePickerResult, setfilePickerResult] = useState(null);
-
+//&$filter=RelationshipId eq '${props.relationshipId}'
     useEffect(() => {    
-        SharePointService.getOperations(`/_api/web/lists/GetById('21b3012d-cae2-480b-ba52-c62e5cf90834')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Modified,Editor/Title,Status,Governance_x0020__x0026__x0020_Compliance_x0020_Services,Benefit_x0020_Administration_x0020_Services,Paymaster_x0020_Services,Agency_x0020__x0026__x0020_Brokerage_x0020_Services,Executed_x0020_Date_x0020__x0028_client_x0029_&$filter=RelationshipId eq '${props.relationshipId}'&$expand=Editor`).then(
+        SharePointService.getOperations(`/_api/web/lists/GetById('21b3012d-cae2-480b-ba52-c62e5cf90834')/items?$select=ServerRedirectedEmbedUri,FileLeafRef,Modified,Editor/Title,Status,Governance_x0020__x0026__x0020_Compliance_x0020_Services,Benefit_x0020_Administration_x0020_Services,Paymaster_x0020_Services,Agency_x0020__x0026__x0020_Brokerage_x0020_Services,Executed_x0020_Date_x0020__x0028_client_x0029_&$expand=Editor&$filter=RelationshipId eq '${props.relationshipId}'`).then(
             (res) => {
                 setItems(res.value);
                 setLoading(false);
@@ -143,7 +137,7 @@ function SelectedServiceAgreements(props:any) {
         ) : (
           <div>
           <div className={classNames.controlWrapper}>
-          <h3>Service Agreements</h3>
+          <h3>CS - Service Agreements</h3>
              <ListView
               items={items}
               viewFields={viewFields}
@@ -154,7 +148,6 @@ function SelectedServiceAgreements(props:any) {
               dragDropFiles={false}
               stickyHeader={true}
               className={classNames.listView}
-              groupByFields={groupByFields}
             />
           </div>
           </div>
