@@ -52,6 +52,7 @@ import { IListItemCollection } from "../../../Services/IListItem";
 import AlternativeInvestmentsModal from "./modals/AlternativeInvestmentsModal";
 import { FontIcon } from '@fluentui/react/lib/Icon';
 
+
 const cancelIcon: IIconProps = { iconName: "Cancel" };
 
 const theme = getTheme();
@@ -312,8 +313,10 @@ function SelectedAlternativeInvestments(props: any) {
         "Modified",
         "DateSigned",
         "RregistrationType/Title",
+        "RregistrationType/Id",
         "InitialPurchase",
         "Product/Title",
+        "Product/ID",
         "ExpectedInvestmentAmount",
         "TradeRepID/Title",
         "Advisor/Title",
@@ -337,10 +340,10 @@ function SelectedAlternativeInvestments(props: any) {
   }
 
   async function _getSelection(selItem: any[]) {
-    console.log("ID", selItem["0"].ID);
+    //console.log("ID", selItem["0"].ID);
 
     const getItem = await _getItem(selItem["0"].ID);
-    console.log("getItem", getItem);
+    //console.log("getItem", getItem);
     setItem(getItem);
     setLoading(false);
     showModal();
@@ -379,12 +382,14 @@ function SelectedAlternativeInvestments(props: any) {
         "ExpectedInvestmentAmount",
         "TradeRepID/Title",
         "Advisor/Title",
+        "Advisor/Email",
         "ItemStatus",
         "Repertoire",
         "DSTVisionReporting",
         "EnvestnetReporting",
         "Commission_x0020_Paid",
-        "Processor/Title"
+        "Processor/Title",
+        "Properties/vti_x005f_shortcuturl"
       )
       .expand(
         "Editor",
@@ -392,7 +397,8 @@ function SelectedAlternativeInvestments(props: any) {
         "TradeRepID",
         "Advisor",
         "Processor",
-        "Product"
+        "Product",
+        "Properties"
       )
       .filter(`RelationshipId eq '${props.relationshipId}'`)
       .get()
@@ -416,16 +422,18 @@ function SelectedAlternativeInvestments(props: any) {
         "RregistrationType/Title",
         "InitialPurchase",
         "Product/Title",
+        "Product/ID",
         "ExpectedInvestmentAmount",
         "TradeRepID/Title",
         "Advisor/Title",
+        "Advisor/Email",
         "ItemStatus",
         "Repertoire",
         "DSTVisionReporting",
         "EnvestnetReporting",
         "Commission_x0020_Paid",
         "Processor/Title",
-        "ID"
+        "Properties/vti_x005f_shortcuturl"
       )
       .expand(
         "Editor",
@@ -433,7 +441,8 @@ function SelectedAlternativeInvestments(props: any) {
         "TradeRepID",
         "Advisor",
         "Processor",
-        "Product"
+        "Product",
+        "Properties"
       )
       .filter(`RelationshipId eq '${props.relationshipId}'`)
       .get()
@@ -497,7 +506,7 @@ function SelectedAlternativeInvestments(props: any) {
                 />
               </div>
               <div className={contentStyles.body}>
-                <AlternativeInvestmentsModal item={item} />
+                <AlternativeInvestmentsModal item={item} context={props.context} />
               </div>
             </Modal>
           </div>

@@ -1,11 +1,10 @@
 import * as React from "react";
 import { Stack, IStackTokens } from "@fluentui/react";
-import { DefaultButton, PrimaryButton } from "@fluentui/react/lib/Button";
+import { PrimaryButton } from "@fluentui/react/lib/Button";
 import { TextField } from "@fluentui/react/lib/TextField";
 import {
   DatePicker,
   DayOfWeek,
-  mergeStyles,
   defaultDatePickerStrings,
 } from "@fluentui/react";
 import {
@@ -14,26 +13,49 @@ import {
   IDropdownStyles,
   IDropdownOption,
 } from "@fluentui/react/lib/Dropdown";
+import { useEffect, useState } from "react";
+import { sp } from "@pnp/sp/presets/all";
+import { Web } from "@pnp/sp/webs";
+import { ComboBoxListItemPicker } from "@pnp/spfx-controls-react/lib/ListItemPicker";
+import {
+  PeoplePicker,
+  PrincipalType,
+} from "@pnp/spfx-controls-react/lib/PeoplePicker";
+import {
+  DateTimePicker,
+  DateConvention,
+  TimeConvention,
+} from "@pnp/spfx-controls-react/lib/DateTimePicker";
 
-const options: IDropdownOption[] = [
+const status: IDropdownOption[] = [
+  { key: "1. Pending", text: "1. Pending" },
+  { key: "2. Submitted", text: "2. Submitted" },
+  { key: "3. NIGO", text: "3. NIGO" },
+  { key: "4. Completed", text: "4. Completed" },
+  { key: "5. Cancelled", text: "5. Cancelled" },
+];
+const repertoire: IDropdownOption[] = [
+  { key: "1. Pending", text: "1. Pending" },
+  { key: "2. Submitted", text: "2. Submitted" },
+  { key: "3. N/A", text: "3. N/A" },
+];
+const direct: IDropdownOption[] = [
+  { key: "1. Pending", text: "1. Pending" },
+  { key: "2. N/A", text: "2. N/A" },
+  { key: "3. Yes", text: "3. Yes" },
+];
+const bd: IDropdownOption[] = [
+  { key: "1. Pending", text: "1. Pending" },
+  { key: "2. Completed", text: "2. Completed" },
+  { key: "3. In Brokerage", text: "3. In Brokerage" },
+];
+const comm: IDropdownOption[] = [
+  { key: "1. Pending", text: "1. Pending" },
+  { key: "2. No - N/A", text: "2. No - N/A" },
   {
-    key: "fruitsHeader",
-    text: "Fruits",
-    itemType: DropdownMenuItemType.Header,
+    key: "3. Yes - (Enter Pay Date in Comments)",
+    text: "3. Yes - (Enter Pay Date in Comments)",
   },
-  { key: "apple", text: "Apple" },
-  { key: "banana", text: "Banana" },
-  { key: "orange", text: "Orange", disabled: true },
-  { key: "grape", text: "Grape" },
-  { key: "divider_1", text: "-", itemType: DropdownMenuItemType.Divider },
-  {
-    key: "vegetablesHeader",
-    text: "Vegetables",
-    itemType: DropdownMenuItemType.Header,
-  },
-  { key: "broccoli", text: "Broccoli" },
-  { key: "carrot", text: "Carrot" },
-  { key: "lettuce", text: "Lettuce" },
 ];
 
 const stackTokens: IStackTokens = { childrenGap: 20 };
@@ -42,90 +64,274 @@ const dropdownStyles: Partial<IDropdownStyles> = {
 };
 
 function AlternativeInvestmentsModal(props: any) {
+  const [altitem, setaltItem] = useState(null);
+
+  useEffect(() => {
+    async function init() {
+      const item = await _getListItem();
+      setaltItem(item);
+      //debugger;
+    }
+    init();
+    //console.log("PRoductID: ", props.item.Product.Id);
+  }, []);
+
+  function _getListItem() {
+    let web = Web("https://rmrwealth1.sharepoint.com/sites/operationsteam");
+
+    return web.lists
+      .getByTitle("Alternative Investments")
+      .items.getById(props.item.ID)
+      .get();
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     console.dir(event.target);
     console.log("submitted");
   }
 
+  function onChange(items: any) {
+    console.log("onChange item:", items);
+  }
+
+  function onSelectedItem(item: []) {
+    console.log("selected items:", item);
+  }
+
+  function _getPeoplePickerItems(items: any[]) {
+    console.log("Items:", items);
+  }
+
+  function _OnSelectedDate(items: any) {
+    console.log("Items:", items);
+  }
+  const onChangeAccountValue = React.useCallback(
+    (event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, newValue?: string) => {
+      //setFirstTextFieldValue(newValue || '');
+      console.log(newValue)
+    },
+    [],
+  );
+
+  //
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <h3>Name: {props.item.FileLeafRef}</h3>
+        <h3>
+          Name:{" "}
+          <a
+            href={
+              "https://rmrwealth1.sharepoint.com/sites/operationsteam/AlternativeInvestments/" +
+              props.item.FileLeafRef
+            }
+          >
+            {props.item.FileLeafRef}
+          </a>
+        </h3>
       </div>
       <Stack tokens={stackTokens}>
-        <TextField
-          label="Acount Number"
-          defaultValue={props.item.AccountNumber}
-        />
-        <DatePicker
-          firstDayOfWeek={DayOfWeek.Sunday}
-          placeholder="Select a date..."
-          ariaLabel="Select a date"
-          strings={defaultDatePickerStrings}
-          label="Date Signed"
-          //value={props.item.DateSigned} need to set default value
-        />
-        <Dropdown
-          placeholder="Select an option"
-          label="Registration Type"
-          options={options}
-          styles={dropdownStyles}
-        />
-        <Dropdown
-          placeholder="Select an option"
-          label="Product"
-          options={options}
-          styles={dropdownStyles}
-        />
-        <Dropdown
-          placeholder="Select an option"
+        {props.item.AccountNumber ? (
+          <TextField
+            label="Account Number Filled"
+            defaultValue={props.item.AccountNumber}
+            onChange={onChangeAccountValue}
+          />
+        ) : (
+          <TextField
+            label="Account Number"
+            onChange={onChangeAccountValue}
+          />
+        )}
+        {props.item.DateSigned ? (
+          <DateTimePicker
+            label="Date Signed Filled"
+            dateConvention={DateConvention.DateTime}
+            timeConvention={TimeConvention.Hours12}
+            value={new Date(props.item.DateSigned)}
+            onChange={_OnSelectedDate}
+          />
+        ) : (
+          <DateTimePicker
+            label="Date Signed"
+            dateConvention={DateConvention.DateTime}
+            timeConvention={TimeConvention.Hours12}
+            onChange={_OnSelectedDate}
+          />
+        )}
+
+        {props.item.Product ? (
+          <ComboBoxListItemPicker
+            listId="DA2E068A-1B66-4A4A-B492-ABFC0EEE1327"
+            label="Product"
+            columnInternalName="Title"
+            keyColumnInternalName="Id"
+            defaultSelectedItems={[props.item.Product.ID]}
+            orderBy="Title asc"
+            onSelectedItem={onSelectedItem}
+            webUrl={"https://rmrwealth1.sharepoint.com/sites/operationsteam"}
+            spHttpClient={props.context.spHttpClient}
+          />
+        ) : (
+          <ComboBoxListItemPicker
+            listId="DA2E068A-1B66-4A4A-B492-ABFC0EEE1327"
+            label="Product"
+            columnInternalName="Title"
+            keyColumnInternalName="Id"
+            orderBy="Title asc"
+            onSelectedItem={onSelectedItem}
+            webUrl={"https://rmrwealth1.sharepoint.com/sites/operationsteam"}
+            spHttpClient={props.context.spHttpClient}
+          />
+        )}
+
+        <ComboBoxListItemPicker
+          listId="2dd73365-9267-40f9-8411-c931668c2003"
           label="Trade RepID"
-          options={options}
-          styles={dropdownStyles}
+          columnInternalName="RepCode"
+          keyColumnInternalName="Id"
+          //defaultSelectedItems=[]
+          orderBy="RepCode asc"
+          onSelectedItem={onSelectedItem}
+          webUrl={"https://rmrwealth1.sharepoint.com/sites/operationsteam"}
+          spHttpClient={props.context.spHttpClient}
         />
-        <Dropdown
-          placeholder="Select an option"
-          label="Advisor"
-          options={options}
-          styles={dropdownStyles}
-        />
-        <Dropdown
-          placeholder="Select an option"
-          label="Item Status"
-          options={options}
-          styles={dropdownStyles}
-        />
-           <Dropdown
-          placeholder="Select an option"
-          label="Repertoire"
-          options={options}
-          styles={dropdownStyles}
-        />
-           <Dropdown
-          placeholder="Select an option"
-          label="Direct Reporting"
-          options={options}
-          styles={dropdownStyles}
-        />
-           <Dropdown
-          placeholder="Select an option"
-          label="BR Reporting"
-          options={options}
-          styles={dropdownStyles}
-        />
-           <Dropdown
-          placeholder="Select an option"
-          label="Commission Paid"
-          options={options}
-          styles={dropdownStyles}
-        />
-        <Dropdown
-          placeholder="Select an option"
-          label="Processor"
-          options={options}
-          styles={dropdownStyles}
-        />
+        {props.item.Advisor ? (
+          <PeoplePicker
+            context={props.context}
+            titleText="Advisor"
+            personSelectionLimit={1}
+            showtooltip={true}
+            required={true}
+            disabled={false}
+            onChange={_getPeoplePickerItems}
+            showHiddenInUI={false}
+            principalTypes={[PrincipalType.User]}
+            resolveDelay={1000}
+            defaultSelectedUsers={props.item.Advisor}
+          />
+        ) : (
+          <PeoplePicker
+            context={props.context}
+            titleText="Advisor"
+            personSelectionLimit={1}
+            showtooltip={true}
+            required={false}
+            disabled={false}
+            onChange={_getPeoplePickerItems}
+            showHiddenInUI={false}
+            principalTypes={[PrincipalType.User]}
+            resolveDelay={1000}
+          />
+        )}
+        {props.item.ItemStatus ? (
+          <Dropdown
+            placeholder="Select an option"
+            label="Item Status"
+            options={status}
+            styles={dropdownStyles}
+          />
+        ) : (
+          <Dropdown
+            placeholder="Select an option"
+            label="Item Status"
+            options={status}
+            styles={dropdownStyles}
+          />
+        )}
+
+        {props.item.Repertoire ? (
+          <Dropdown
+            placeholder="Select an option"
+            label="Repertoire"
+            options={repertoire}
+            styles={dropdownStyles}
+          />
+        ) : (
+          <Dropdown
+            placeholder="Select an option"
+            label="Repertoire"
+            options={repertoire}
+            styles={dropdownStyles}
+          />
+        )}
+
+        {props.item.DSTVisionReporting ? (
+          <Dropdown
+            placeholder="Select an option"
+            label="Direct Reporting"
+            options={direct}
+            styles={dropdownStyles}
+          />
+        ) : (
+          <Dropdown
+            placeholder="Select an option"
+            label="Direct Reporting"
+            options={direct}
+            styles={dropdownStyles}
+          />
+        )}
+
+        {props.item.EnvestnetReporting ? (
+          <Dropdown
+            placeholder="Select an option"
+            label="BR Reporting"
+            options={bd}
+            styles={dropdownStyles}
+          />
+        ) : (
+          <Dropdown
+            placeholder="Select an option"
+            label="BR Reporting"
+            options={bd}
+            styles={dropdownStyles}
+          />
+        )}
+
+        {props.item.Commission_x0020_Paid ? (
+          <Dropdown
+            placeholder="Select an option"
+            label="Commission Paid"
+            options={comm}
+            styles={dropdownStyles}
+          />
+        ) : (
+          <Dropdown
+            placeholder="Select an option"
+            label="Commission Paid"
+            options={comm}
+            styles={dropdownStyles}
+          />
+        )}
+
+        {props.item.Processor ? (
+          <PeoplePicker
+            context={props.context}
+            titleText="Processor"
+            personSelectionLimit={1}
+            showtooltip={true}
+            required={true}
+            disabled={false}
+            onChange={_getPeoplePickerItems}
+            showHiddenInUI={false}
+            principalTypes={[PrincipalType.User]}
+            resolveDelay={1000}
+          />
+        ) : (
+          <PeoplePicker
+            context={props.context}
+            titleText="Processor"
+            personSelectionLimit={1}
+            showtooltip={true}
+            required={true}
+            disabled={false}
+            onChange={_getPeoplePickerItems}
+            showHiddenInUI={false}
+            principalTypes={[PrincipalType.User]}
+            resolveDelay={1000}
+          />
+        )}
+
         <PrimaryButton type="submit">Save</PrimaryButton>
       </Stack>
     </form>

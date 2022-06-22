@@ -20,7 +20,7 @@
     "@microsoft/sp-webpart-base": "1.13.1",
     "@pnp/graph": "2.12.0",
     "@pnp/sp": "2.12.0",
-    "@pnp/spfx-controls-react": "3.6.0",
+    "@pnp/spfx-controls-react": "3.8.0",
     "chart.js": "^3.7.1",
     "office-ui-fabric-react": "7.174.1",
     "react": "16.13.1",
