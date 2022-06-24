@@ -26,6 +26,7 @@ import {
   DateConvention,
   TimeConvention,
 } from "@pnp/spfx-controls-react/lib/DateTimePicker";
+import { Checkbox, ICheckboxProps } from "@fluentui/react/lib/Checkbox";
 
 const status: IDropdownOption[] = [
   { key: "1. Pending", text: "1. Pending" },
@@ -60,17 +61,21 @@ const comm: IDropdownOption[] = [
 
 const stackTokens: IStackTokens = { childrenGap: 20 };
 const dropdownStyles: Partial<IDropdownStyles> = {
-  dropdown: { width: 300 },
+  dropdown: { width: 600 },
 };
 
 function AlternativeInvestmentsModal(props: any) {
   const [altitem, setaltItem] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     async function init() {
       const item = await _getListItem();
       setaltItem(item);
       //debugger;
+      if (props.item.InitialPurchase === true) {
+        setIsChecked(true);
+      }
     }
     init();
     //console.log("PRoductID: ", props.item.Product.Id);
@@ -107,25 +112,42 @@ function AlternativeInvestmentsModal(props: any) {
     console.log("Items:", items);
   }
   const onChangeAccountValue = React.useCallback(
-    (event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, newValue?: string) => {
+    (
+      event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+      newValue?: string
+    ) => {
       //setFirstTextFieldValue(newValue || '');
-      console.log(newValue)
+      console.log(newValue);
     },
-    [],
+    []
+  );
+  const onChangeExpectedValue = React.useCallback(
+    (
+      event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+      newValue?: string
+    ) => {
+      //setFirstTextFieldValue(newValue || '');
+      console.log(newValue);
+    },
+    []
   );
 
-  //
+  const onCheck = React.useCallback(
+    (
+      ev?: React.FormEvent<HTMLElement | HTMLInputElement>,
+      checked?: boolean
+    ): void => {
+      setIsChecked(!!checked);
+    },
+    []
+  );
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <h3>
           Name:{" "}
-          <a
-            href={
-              "https://rmrwealth1.sharepoint.com/sites/operationsteam/AlternativeInvestments/" +
-              props.item.FileLeafRef
-            }
-          >
+          <a href={props.item.ServerRedirectedEmbedUri} target="_blank">
             {props.item.FileLeafRef}
           </a>
         </h3>
@@ -138,14 +160,11 @@ function AlternativeInvestmentsModal(props: any) {
             onChange={onChangeAccountValue}
           />
         ) : (
-          <TextField
-            label="Account Number"
-            onChange={onChangeAccountValue}
-          />
+          <TextField label="Account Number" onChange={onChangeAccountValue} />
         )}
         {props.item.DateSigned ? (
           <DateTimePicker
-            label="Date Signed Filled"
+            label="Date Signed"
             dateConvention={DateConvention.DateTime}
             timeConvention={TimeConvention.Hours12}
             value={new Date(props.item.DateSigned)}
@@ -160,9 +179,40 @@ function AlternativeInvestmentsModal(props: any) {
           />
         )}
 
+        {props.item.RregistrationTypeId ? (
+          <ComboBoxListItemPicker
+            listId="da2e068a-1b66-4a4a-b492-abfc0eee1327"
+            label="Registration Type Filled"
+            columnInternalName="Title"
+            keyColumnInternalName="Id"
+            defaultSelectedItems={[props.item.RregistrationType.Id]}
+            orderBy="Title asc"
+            onSelectedItem={onSelectedItem}
+            webUrl={"https://rmrwealth1.sharepoint.com/sites/operationsteam"}
+            spHttpClient={props.context.spHttpClient}
+          />
+        ) : (
+          <ComboBoxListItemPicker
+            listId="da2e068a-1b66-4a4a-b492-abfc0eee1327"
+            label="Registration Type"
+            columnInternalName="Title"
+            keyColumnInternalName="Id"
+            orderBy="Title asc"
+            onSelectedItem={onSelectedItem}
+            webUrl={"https://rmrwealth1.sharepoint.com/sites/operationsteam"}
+            spHttpClient={props.context.spHttpClient}
+          />
+        )}
+
+        <Checkbox
+          label="Inital Purchase"
+          checked={isChecked}
+          onChange={onCheck}
+        />
+
         {props.item.Product ? (
           <ComboBoxListItemPicker
-            listId="DA2E068A-1B66-4A4A-B492-ABFC0EEE1327"
+            listId="097cc1cf-11a1-4b7f-b967-215e6cdec625"
             label="Product"
             columnInternalName="Title"
             keyColumnInternalName="Id"
@@ -174,7 +224,7 @@ function AlternativeInvestmentsModal(props: any) {
           />
         ) : (
           <ComboBoxListItemPicker
-            listId="DA2E068A-1B66-4A4A-B492-ABFC0EEE1327"
+            listId="097cc1cf-11a1-4b7f-b967-215e6cdec625"
             label="Product"
             columnInternalName="Title"
             keyColumnInternalName="Id"
@@ -185,17 +235,45 @@ function AlternativeInvestmentsModal(props: any) {
           />
         )}
 
-        <ComboBoxListItemPicker
-          listId="2dd73365-9267-40f9-8411-c931668c2003"
-          label="Trade RepID"
-          columnInternalName="RepCode"
-          keyColumnInternalName="Id"
-          //defaultSelectedItems=[]
-          orderBy="RepCode asc"
-          onSelectedItem={onSelectedItem}
-          webUrl={"https://rmrwealth1.sharepoint.com/sites/operationsteam"}
-          spHttpClient={props.context.spHttpClient}
-        />
+        {props.item.ExpectedInvestmentAmount ? (
+          <TextField
+            label="Expected Investment Filled"
+            defaultValue={props.item.ExpectedInvestmentAmount}
+            onChange={onChangeExpectedValue}
+          />
+        ) : (
+          <TextField
+            label="Expected Investment"
+            onChange={onChangeExpectedValue}
+          />
+        )}
+
+        {props.item.TradeRep ? (
+          <ComboBoxListItemPicker
+            listId="850b0332-87cd-43f2-aaa8-345c154cf837"
+            label="Trade RepID"
+            columnInternalName="Title"
+            keyColumnInternalName="Id"
+            //defaultSelectedItems=[]
+            orderBy="Title asc"
+            onSelectedItem={onSelectedItem}
+            webUrl={"https://rmrwealth1.sharepoint.com/sites/operationsteam"}
+            spHttpClient={props.context.spHttpClient}
+          />
+        ) : (
+          <ComboBoxListItemPicker
+            listId="850b0332-87cd-43f2-aaa8-345c154cf837"
+            label="Trade RepID"
+            columnInternalName="Title"
+            keyColumnInternalName="Id"
+            //defaultSelectedItems=[]
+            orderBy="Title asc"
+            onSelectedItem={onSelectedItem}
+            webUrl={"https://rmrwealth1.sharepoint.com/sites/operationsteam"}
+            spHttpClient={props.context.spHttpClient}
+          />
+        )}
+
         {props.item.Advisor ? (
           <PeoplePicker
             context={props.context}
@@ -208,7 +286,7 @@ function AlternativeInvestmentsModal(props: any) {
             showHiddenInUI={false}
             principalTypes={[PrincipalType.User]}
             resolveDelay={1000}
-            defaultSelectedUsers={props.item.Advisor}
+            defaultSelectedUsers={props.item.Advisor.EMail}
           />
         ) : (
           <PeoplePicker
@@ -229,7 +307,7 @@ function AlternativeInvestmentsModal(props: any) {
             placeholder="Select an option"
             label="Item Status"
             options={status}
-            styles={dropdownStyles}
+            //styles={dropdownStyles}
           />
         ) : (
           <Dropdown

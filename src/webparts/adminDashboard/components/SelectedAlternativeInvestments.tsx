@@ -188,7 +188,7 @@ const viewFields: IViewField[] = [
     },
   },
   {
-    name: "TradeRepID.Title",
+    name: "TradeRep.Title",
     displayName: "TradeRepID",
     isResizable: true,
     sorting: true,
@@ -318,7 +318,8 @@ function SelectedAlternativeInvestments(props: any) {
         "Product/Title",
         "Product/ID",
         "ExpectedInvestmentAmount",
-        "TradeRepID/Title",
+        "TradeRep/Title",
+        "TradeRep/ID",
         "Advisor/Title",
         "ItemStatus",
         "Repertoire",
@@ -331,7 +332,7 @@ function SelectedAlternativeInvestments(props: any) {
       .expand(
         "Editor",
         "RregistrationType",
-        "TradeRepID",
+        "TradeRep",
         "Advisor",
         "Processor",
         "Product"
@@ -340,10 +341,8 @@ function SelectedAlternativeInvestments(props: any) {
   }
 
   async function _getSelection(selItem: any[]) {
-    //console.log("ID", selItem["0"].ID);
-
-    const getItem = await _getItem(selItem["0"].ID);
-    //console.log("getItem", getItem);
+    console.log("ID", selItem["0"].ID);
+    const getItem = await _getItem(selItem["0"].ID);  
     setItem(getItem);
     setLoading(false);
     showModal();
@@ -379,22 +378,25 @@ function SelectedAlternativeInvestments(props: any) {
         "RregistrationType/Title",
         "InitialPurchase",
         "Product/Title",
+        "Product/ID",
         "ExpectedInvestmentAmount",
-        "TradeRepID/Title",
+        "TradeRep/Title",
+        "TradeRep/ID",
         "Advisor/Title",
-        "Advisor/Email",
+        "Advisor/EMail",
         "ItemStatus",
         "Repertoire",
         "DSTVisionReporting",
         "EnvestnetReporting",
         "Commission_x0020_Paid",
         "Processor/Title",
-        "Properties/vti_x005f_shortcuturl"
+        "Properties/vti_x005f_shortcuturl",
+        "ID"
       )
       .expand(
         "Editor",
         "RregistrationType",
-        "TradeRepID",
+        "TradeRep",
         "Advisor",
         "Processor",
         "Product",
@@ -424,21 +426,22 @@ function SelectedAlternativeInvestments(props: any) {
         "Product/Title",
         "Product/ID",
         "ExpectedInvestmentAmount",
-        "TradeRepID/Title",
+        "TradeRep/Title",
         "Advisor/Title",
-        "Advisor/Email",
+        "Advisor/EMail",
         "ItemStatus",
         "Repertoire",
         "DSTVisionReporting",
         "EnvestnetReporting",
         "Commission_x0020_Paid",
         "Processor/Title",
-        "Properties/vti_x005f_shortcuturl"
+        "Properties/vti_x005f_shortcuturl",
+        "ID"
       )
       .expand(
         "Editor",
         "RregistrationType",
-        "TradeRepID",
+        "TradeRep",
         "Advisor",
         "Processor",
         "Product",
